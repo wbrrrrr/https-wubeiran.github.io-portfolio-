@@ -1,0 +1,305 @@
+<!DOCTYPE html><html class="light" lang="zh" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>SmartNote 案例研究 - Beiran Wu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#e7eefe",
+                        "surface": "#f9f9ff",
+                        "error": "#ba1a1a",
+                        "secondary": "#4b41e1",
+                        "surface-bright": "#f9f9ff",
+                        "inverse-surface": "#2a313d",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#000000",
+                        "surface-tint": "#5f5e5e",
+                        "on-primary-fixed-variant": "#474646",
+                        "on-tertiary-fixed-variant": "#454748",
+                        "outline-variant": "#c4c7c7",
+                        "on-background": "#151c27",
+                        "tertiary-fixed-dim": "#c5c7c8",
+                        "primary": "#000000",
+                        "on-surface": "#151c27",
+                        "on-secondary-fixed": "#0f0069",
+                        "tertiary-container": "#191c1d",
+                        "surface-container-highest": "#dce2f3",
+                        "surface-dim": "#d3daea",
+                        "primary-fixed": "#e5e2e1",
+                        "outline": "#747878",
+                        "on-secondary-container": "#fffbff",
+                        "surface-container-high": "#e2e8f8",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "tertiary-fixed": "#e1e3e4",
+                        "on-tertiary-container": "#828485",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "background": "#f9f9ff",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#e2dfff",
+                        "on-tertiary-fixed": "#191c1d",
+                        "on-surface-variant": "#444748",
+                        "surface-container-low": "#f0f3ff",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#dce2f3",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#858383",
+                        "secondary-container": "#645efb",
+                        "primary-container": "#1c1b1b",
+                        "on-secondary-fixed-variant": "#3323cc",
+                        "inverse-on-surface": "#ebf1ff",
+                        "on-primary-fixed": "#1c1b1b",
+                        "inverse-primary": "#c8c6c5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "stack-lg": "24px",
+                        "container-max": "1200px",
+                        "stack-xs": "4px",
+                        "gutter": "32px",
+                        "stack-sm": "8px",
+                        "section-gap-sm": "80px",
+                        "section-gap-lg": "160px"
+                    },
+                    "fontFamily": {
+                        "metric-value": ["Manrope", "sans-serif"],
+                        "label-caps": ["JetBrains Mono", "monospace"],
+                        "display-lg-mobile": ["Manrope", "sans-serif"],
+                        "headline-md": ["Manrope", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "headline-sm": ["Manrope", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "display-lg": ["Manrope", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "metric-value": ["48px", { "lineHeight": "1.0", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                },
+            },
+        }
+    </script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: theme('colors.surface'); color: theme('colors.on-surface'); }
+        .glass-panel { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid theme('colors.outline-variant'); }
+        .soft-shadow { box-shadow: 0 4px 20px -2px rgba(75, 65, 225, 0.04); }
+        .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 12px 30px -4px rgba(75, 65, 225, 0.1); }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-outline-variant shadow-sm">
+<div class="flex justify-between items-center h-16 px-gutter max-w-container-max mx-auto">
+<div class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight">
+                吴贝然</div>
+<div class="hidden md:flex items-center space-x-stack-lg font-body-md text-body-md">
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">首页</a>
+<a class="text-secondary font-bold border-b-2 border-secondary hover:text-secondary transition-colors duration-200" href="#">作品</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">关于</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">简历</a>
+</div>
+<button class="hidden md:block bg-primary text-on-primary font-body-md text-body-md px-4 py-2 rounded font-medium hover:bg-opacity-90 transition-colors active:scale-95">
+                联系我
+            </button>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[104px] pb-section-gap-lg w-full">
+<!-- 1. Introduction Section (Combined Hero & Overview) -->
+<section class="px-5 md:px-gutter max-w-[900px] mx-auto w-full mb-[64px]">
+<span class="inline-block font-label-caps text-label-caps bg-surface-container-high text-on-surface-variant px-2 py-1 rounded mb-stack-md uppercase tracking-wider">产品设计</span>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary mb-stack-md">
+                    智能笔记</h1>
+<p class="font-headline-sm text-headline-sm text-on-surface-variant mb-stack-lg font-normal">
+                    智能教育助手
+                </p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter items-start border-t border-outline-variant pt-stack-lg mt-stack-lg">
+<div class="md:col-span-2">
+<div class="mb-8">
+<div class="font-label-caps text-label-caps text-outline mb-1">角色</div>
+<div class="font-body-md text-body-md text-primary font-medium">产品设计师</div>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-stack-md">项目概览</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        现代教育让学生们接收到大量零散的信息，主要通过密集的演示文稿进行。SmartNote的构想是为了填补原始信息输入与实际知识保留之间的空白。通过自动将课程材料转化为视觉框架，并采用基于科学依据的间隔重复算法，我们旨在将消极的阅读转变为积极的掌握。
+                    </p>
+</div>
+<div class="bg-surface-container-low rounded-xl p-stack-lg border border-outline-variant text-center md:text-left flex flex-col justify-center">
+<span class="font-label-caps text-label-caps text-outline mb-stack-sm block">影响力</span>
+<div class="font-metric-value text-metric-value text-secondary mb-2">2.5倍</div>
+<div class="font-body-md text-body-md text-primary font-medium">留存率提升</div>
+</div>
+</div>
+</section>
+<!-- 2. Full Width Hero Image -->
+<section class="w-full mb-[120px] bg-surface-container-lowest py-8 md:py-16 border-y border-outline-variant">
+<div class="max-w-container-max mx-auto px-5 md:px-gutter">
+<img alt="SmartNote Mockup" class="w-full h-auto rounded-xl object-contain mx-auto max-h-[70vh] shadow-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4AmubC6J25qXGZdeQXmEng2POPx9eVE3FhzII_V0c5QhWFIgSS_jn_ssXznYaoRnmGAxEALebv6sekLwWFVOmso8k2IYEwLf5mvPJjskEHskq1xTyFMp2e9vhNILSW_U2NHTd2MYMnjMrBB_UxbwFhI_HwpJMhYbbTvCzsCJ-Mxb9gKT2Kb9Oddf19umInUAN-VRrReFgBPn5MqkUPx0ASrULOcTC13eXkUkyqDsgddHcpf-J6AQxwQJ-KxndPqwyIg">
+</div>
+</section>
+<div class="px-5 md:px-gutter max-w-container-max mx-auto w-full">
+<!-- 3. User Needs & Strategy -->
+<section class="mb-[120px]">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- User Needs -->
+<div class="border border-error-container bg-surface-container-lowest rounded-xl p-stack-lg">
+<div class="flex items-center gap-2 mb-stack-lg text-error">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+<h2 class="font-headline-sm text-headline-sm font-bold">用户需求</h2>
+</div>
+<ul class="space-y-stack-lg">
+<li class="">
+<h4 class="font-body-lg text-body-lg text-primary font-bold mb-1">信息过载</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">学生们很难将每门课程数百页密集的PPT合成连贯的心理模型。</p>
+</li>
+<li class="">
+<h4 class="font-body-lg text-body-lg text-primary font-bold mb-1">缺乏视觉框架</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">线性的记笔记方式无法捕捉复杂概念之间的关系。</p>
+</li>
+</ul>
+</div>
+<!-- Strategy -->
+<div class="bg-surface-container-low rounded-xl p-stack-lg border border-secondary-fixed">
+<div class="flex items-center gap-2 mb-stack-lg text-secondary">
+<span class="material-symbols-outlined" data-icon="lightbulb">lightbulb</span>
+<h2 class="font-headline-sm text-headline-sm font-bold">假设与策略</h2>
+</div>
+<p class="font-body-lg text-body-lg text-primary italic mb-stack-lg">
+                        "如果我们可以自动构建数据结构，学生们就可以把他们的认知精力花在理解上，而不是整理上。"
+                    </p>
+<div class="p-stack-md bg-surface-container-lowest rounded border border-outline-variant">
+<div class="font-label-caps text-label-caps text-secondary mb-2">核心假设</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            将自动语义可视化（思维导图）与算法间隔重复相结合，将显着降低养成有效学习习惯的门槛，并可衡量地提高长期留存率。
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Execution & Features -->
+<section class="mb-[120px]">
+<h2 class="font-headline-md text-headline-md text-primary mb-stack-lg text-center md:text-left">设计执行</h2>
+<div class="space-y-[80px]">
+<!-- Feature 1 -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center bg-surface-container-lowest rounded-xl p-stack-lg border border-outline-variant">
+<div class="order-2 md:order-1 h-64 rounded bg-surface-container border border-outline-variant overflow-hidden relative">
+<img alt="Uploading Mode Mockup" class="object-cover w-full h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhk5rOOQkhDV6hbBdVSlsXQOJ1LEoXjiAwvVnHHdLoMhjqdO7Xot6d-20YEmcW3fHmEMLI8BcBEM13IxvRSygUtkHiaa8zPcxfWieyOznafDj8T0OfNMjj2ApFgb29Z1F7TtU81DzLzciAW_WFcNUoB515k-xFr8m3YqziPmFWgOJNmVd8Iz8YCowU6Kyfgc519hcu3HNsMTLLunsbrRP05NN504RORmGJEoz_L1sP6J-fYW-duEP4">
+</div>
+<div class="order-1 md:order-2">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary mb-4">
+<span class="material-symbols-outlined" data-icon="upload_file">upload_file</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">上传模式</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">无缝入口。用户放入PPT或PDF文件，系统利用NLP技术轻松提取层级结构和关键术语。</p>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center bg-surface-container-lowest rounded-xl p-stack-lg border border-outline-variant">
+<div>
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary mb-4">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">教授模式</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">核心价值。应用程序自动生成互动式、可导航的思维导图，用户可以对其进行编辑、颜色编码和注释，提供即时的视觉上下文。</p>
+</div>
+<div class="h-64 rounded bg-surface-container border border-outline-variant overflow-hidden relative">
+<img alt="Professor Mode Mockup" class="object-cover w-full h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjH3ofr_2SGur2h94YgyP8OFoENUOhhTAYG4ATskL6goKklXw64PQIHUx62MitCtzjTJBwLb77dUjJWR04HRb7kZJnhKMT2MTu4R2o4mWgVCjqFA2R4Qp5ejR86iaST7SoTJTiNJTSAIa0KJk3XopJKnAMNPStrakYM1mMThiybaRynOEV18y96-QQqqrRDsewauDsblTeOWiUmzpA_60FOjXGDI1IxrV9vvZ_JSaXgM3IDNrSBK9w">
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center bg-surface-container-lowest rounded-xl p-stack-lg border border-outline-variant">
+<div class="order-2 md:order-1 h-64 rounded bg-surface-container border border-outline-variant overflow-hidden relative">
+<img alt="Memory Tracker Mode Mockup" class="object-cover w-full h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDocvuSWni7Sf2Ta8Lb4G1qickodLzwmsLc71rQMVK7eJtKGIcIvGL7TJH7q5s-koSEBmifZtyc6P6cQ1WsydIcus2GREJXjXh4yHXAl-BuNHBVfrZ65ZDAMerydz_QChoWBzP4FY-N2dGDKE2BDvLNV78l58bD5jZtY4SkAy4nTjsdOKBVaBEej73hz_jIhYUlyyLJqGtuTD_RTkm36Op1gFVETnUjGwTGZAFrB7QSfB4u2UEZD8ny">
+</div>
+<div class="order-1 md:order-2">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary mb-4">
+<span class="material-symbols-outlined" data-icon="memory">memory</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">记忆追踪器</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">思维导图中的节点会被转化为由间隔重复算法安排的抽认卡，确保对结构化知识的长期记忆。</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Impact & Results -->
+<section class="mb-[120px]">
+<h2 class="font-headline-md text-headline-md text-primary mb-stack-lg">影响力与结果</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-stack-lg">
+<div class="p-stack-lg bg-surface-container-lowest rounded-xl border border-outline-variant text-center">
+<div class="font-metric-value text-metric-value text-secondary mb-2">2.5倍</div>
+<div class="font-body-md text-body-md text-on-surface-variant">留存率</div>
+</div>
+<div class="p-stack-lg bg-surface-container-lowest rounded-xl border border-outline-variant text-center">
+<div class="font-metric-value text-metric-value text-secondary mb-2">85%</div>
+<div class="font-body-md text-body-md text-on-surface-variant">活跃使用率</div>
+</div>
+<div class="p-stack-lg bg-surface-container-lowest rounded-xl border border-outline-variant text-center">
+<div class="font-metric-value text-metric-value text-secondary mb-2">40%</div>
+<div class="font-body-md text-body-md text-on-surface-variant">节省时间</div>
+</div>
+<div class="p-stack-lg bg-surface-container-lowest rounded-xl border border-outline-variant text-center">
+<div class="font-metric-value text-metric-value text-secondary mb-2">9/10</div>
+<div class="font-body-md text-body-md text-on-surface-variant">用户满意度</div>
+</div>
+</div>
+</section>
+<!-- 6. Reflection -->
+<section class="mb-[120px] max-w-3xl mx-auto">
+<div class="bg-surface-container-low rounded-xl p-section-gap-sm border border-secondary-fixed text-center flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-on-secondary mb-stack-md">
+<span class="material-symbols-outlined" data-icon="tips_and_updates">tips_and_updates</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-stack-md">反思</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    设计SmartNote加强了平衡自动化智能与用户自主性的重要性。虽然AI可以有效地构建数据，但允许学生对这些结构进行个性化和互动，才是真正认知参与和学习的关键。
+                </p>
+</div>
+</section>
+<!-- 7. Navigation -->
+<section class="pt-stack-lg border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center gap-stack-lg">
+<a class="flex items-center gap-2 text-on-surface-variant hover:text-secondary transition-colors font-body-md font-medium" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
+                    返回所有作品
+                </a>
+<a class="flex items-center gap-2 text-primary hover:text-secondary transition-colors font-headline-sm text-headline-sm font-bold" href="#">
+                    互动学习
+                    <span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg bg-surface">
+
+</footer>
+
+
+</body></html>
