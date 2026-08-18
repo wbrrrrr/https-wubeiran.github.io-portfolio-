@@ -1,0 +1,293 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="zh" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>案例分析：Interactive Learning - Beiran Wu</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config from Style Guidance -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#e7eefe",
+                        "surface": "#f9f9ff",
+                        "error": "#ba1a1a",
+                        "secondary": "#4b41e1",
+                        "surface-bright": "#f9f9ff",
+                        "inverse-surface": "#2a313d",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#000000",
+                        "surface-tint": "#5f5e5e",
+                        "on-primary-fixed-variant": "#474646",
+                        "on-tertiary-fixed-variant": "#454748",
+                        "outline-variant": "#c4c7c7",
+                        "on-background": "#151c27",
+                        "tertiary-fixed-dim": "#c5c7c8",
+                        "primary": "#000000",
+                        "on-surface": "#151c27",
+                        "on-secondary-fixed": "#0f0069",
+                        "tertiary-container": "#191c1d",
+                        "surface-container-highest": "#dce2f3",
+                        "surface-dim": "#d3daea",
+                        "primary-fixed": "#e5e2e1",
+                        "outline": "#747878",
+                        "on-secondary-container": "#fffbff",
+                        "surface-container-high": "#e2e8f8",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "tertiary-fixed": "#e1e3e4",
+                        "on-tertiary-container": "#828485",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "background": "#f9f9ff",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#e2dfff",
+                        "on-tertiary-fixed": "#191c1d",
+                        "on-surface-variant": "#444748",
+                        "surface-container-low": "#f0f3ff",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#dce2f3",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#858383",
+                        "secondary-container": "#645efb",
+                        "primary-container": "#1c1b1b",
+                        "on-secondary-fixed-variant": "#3323cc",
+                        "inverse-on-surface": "#ebf1ff",
+                        "on-primary-fixed": "#1c1b1b",
+                        "inverse-primary": "#c8c6c5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "stack-lg": "24px",
+                        "container-max": "1200px",
+                        "stack-xs": "4px",
+                        "gutter": "32px",
+                        "stack-sm": "8px",
+                        "section-gap-sm": "80px",
+                        "section-gap-lg": "160px"
+                    },
+                    "fontFamily": {
+                        "metric-value": ["Manrope"],
+                        "label-caps": ["JetBrains Mono"],
+                        "display-lg-mobile": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "body-md": ["Inter"],
+                        "headline-sm": ["Manrope"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "metric-value": ["48px", { "lineHeight": "1.0", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .soft-shadow {
+            box-shadow: 0 10px 30px -10px rgba(75, 65, 225, 0.08);
+        }
+        
+        .soft-shadow:hover {
+            box-shadow: 0 20px 40px -15px rgba(75, 65, 225, 0.15);
+        }
+        
+        .stepper-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #E5E7EB;
+            z-index: 0;
+        }
+        
+        .stepper-node {
+            position: relative;
+            z-index: 1;
+            background-color: #f9f9ff;
+            border: 2px solid #4b41e1;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            margin: 0 auto;
+        }
+        
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        
+        .bento-item-large {
+            grid-column: span 12;
+        }
+        
+        .bento-item-medium {
+            grid-column: span 12;
+        }
+        
+        @media (min-width: 768px) {
+            .bento-item-medium {
+                grid-column: span 6;
+            }
+            .bento-item-large {
+                grid-column: span 8;
+            }
+            .bento-item-small {
+                grid-column: span 4;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased pt-16">
+<!-- TopNavBar (Shared Component) -->
+<header class="bg-surface/80 dark:bg-surface/80 backdrop-blur-md font-body-md text-body-md fixed top-0 w-full z-50 border-b border-outline-variant dark:border-outline shadow-sm">
+<div class="flex justify-between items-center h-16 px-gutter max-w-container-max mx-auto">
+<a class="font-headline-sm text-headline-sm font-bold text-primary dark:text-on-surface" href="#">吴贝然&nbsp; &nbsp;</a>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary hover:text-secondary transition-colors duration-200 active:scale-95 transition-transform" href="#">首页</a>
+<a class="text-secondary dark:text-secondary-fixed-dim font-bold border-b-2 border-secondary hover:text-secondary transition-colors duration-200 active:scale-95 transition-transform" href="#">作品&nbsp;</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary hover:text-secondary transition-colors duration-200 active:scale-95 transition-transform" href="#">关于我&nbsp;</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary hover:text-secondary transition-colors duration-200 active:scale-95 transition-transform" href="#">简历&nbsp;</a>
+</nav>
+<a class="hidden md:inline-flex items-center justify-center px-4 py-2 bg-primary text-on-primary rounded font-body-md font-medium hover:bg-primary-container hover:text-on-primary-container transition-colors active:scale-95" href="#">联系我&nbsp;&nbsp;</a>
+<button class="md:hidden text-primary p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-5 md:px-gutter py-section-gap-sm md:py-section-gap-lg space-y-section-gap-sm md:space-y-section-gap-lg">
+<!-- Introduction Section -->
+<section class="max-w-3xl space-y-stack-lg">
+<a class="inline-flex items-center text-on-surface-variant hover:text-secondary font-label-caps text-label-caps mb-stack-lg transition-colors" href="#portfolio">
+<span class="material-symbols-outlined text-[16px] mr-1">arrow_back</span>
+        返回所有作品
+    </a>
+<div class="space-y-stack-sm">
+<div class="inline-block px-3 py-1 bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps rounded-full">案例分析</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary">互动学习</h1>
+<p class="font-headline-sm text-headline-sm text-on-surface-variant">为五年级学生提供引人入胜的科学教育。</p>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+        设计一个专注于地球探索的互动学习模板，专门为五年级科学课程量身定制。该模块涵盖了地球内部结构、季节变化和全球气候，通过触觉和探索性的数字互动，而不是被动阅读。
+    </p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container text-on-surface font-label-caps text-label-caps rounded">用户体验研究</span>
+<span class="px-3 py-1 bg-surface-container text-on-surface font-label-caps text-label-caps rounded">原型设计</span>
+<span class="px-3 py-1 bg-surface-container text-on-surface font-label-caps text-label-caps rounded">交互设计</span>
+</div>
+<div class="flex flex-col md:flex-row gap-stack-lg pt-stack-md border-t border-outline-variant">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-stack-xs">角色</p>
+<p class="font-body-md text-body-md font-medium">产品设计师</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-stack-xs">领域</p>
+<p class="font-body-md text-body-md font-medium">教育科技</p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-stack-xs">影响力</p>
+<p class="font-body-md text-body-md font-medium text-secondary">15% 理解力分数提升</p>
+</div>
+</div>
+</section>
+<!-- Full Width Hero Image Section -->
+<section>
+<div class="w-full h-80 md:h-[600px] rounded-xl overflow-hidden border border-outline-variant soft-shadow relative bg-surface-container" data-alt="A modern, sleek tablet interface displaying an interactive 3D model of the Earth's inner core. The UI is bright, clean, and educational, using a tech-forward aesthetic with subtle deep blue and bright white tones. The lighting is soft and engaging, suitable for a 5th-grade learning application. The setting implies a contemporary classroom environment." style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCPd5T9j0FME7GmqqcLlQMYOdyKNjqIJ30qTKsJhrd_LtRZq_X-ASZCYmmZcluoYbOubWf2DzGMwNZ94oSLzHS-V8Fxi4iiGVK5vvDLPSRYIEqYxhoWuF8JyEpWLP22Ye97QOZVp0ucRYpE-bt_J8YsNw3DjI0YprQfOIJCxadPncxfW1dq6dm3xdj2C5jwmTZHNerBUuPHlikg6Cn_WhM3LrujmH1dHnfR7sbi_T1EAyzTWHfnnh9tsOYsWpswrQxW-g&quot;); background-size: cover; background-position: center center;">
+<!-- Hero Image Placeholder -->
+</div>
+</section>
+<!-- Learning Plan Section -->
+<section>
+<h2 class="font-headline-sm text-headline-sm text-primary mb-stack-lg">学习计划</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    这个学习项目为五年级学生提供了一次难忘的学习之旅。我精心设计了丰富有趣的内容，旨在激发他们对科学探索的热情。让科学学习变得高效、引人入胜且个性化。
+                </p>
+</div>
+<div>
+<div class="w-full aspect-video rounded-xl border border-outline-variant bg-surface-container-high soft-shadow flex items-center justify-center"><img alt="Learning Plan Diagram" class="w-full h-full object-cover rounded-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdu5GwsAd3ZlU7Feit246F8lCPTVEiyPP5DKMP_PW7Y2PgO3-wXKOjMHw9xCHaHjMY2vLGuobDauSZnCNDiarX8wTEDKouwqDQ2UYaDFFj9eIe42C7nNYMsRRTclmxmZOuerKWOXRG7PguFY07B-Xax26AJrFCUQD5OpzD4fmPQTQt_6JpMg2251pNqUKVC7j51-4ONY5_wrMWGlvlkc5XHDsZY8uMTXW0I5CO5XqkjH4JrRE4MNXZJ779p62D-H9WZw"></div>
+</div>
+</div>
+</section>
+<!-- Design Process Section -->
+<section>
+<h2 class="font-headline-sm text-headline-sm text-primary mb-stack-lg">设计过程</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="border border-outline-variant rounded-xl p-stack-lg bg-surface soft-shadow">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-stack-sm">任务流程</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg">用户需要采取哪些步骤来实现他们的目标？</p>
+<div class="w-full md:aspect-video rounded border border-outline-variant bg-surface-container-high flex items-center justify-center h-80"><img alt="礑学教育项目任务流程图" class="w-full h-full object-contain rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYJonhD5QRuO2CcOCshImEJ-TZjC_Oz-LmzlthVpyw_JOhH3uZzQNM3HPnYVNLvDRJLJg3ZMlxKi5ASRvRpdgOBvHnDwvocCscfylMZLXMOip7C68m6Y3gkzWNTudYPWHJUuPljVAxn_H3aEEVG6JwBbe_qEC0PhN5awdF9Q6KBE917hR15P42SgnY3ZfHHPDn5Hds-AS4J00e1WTUEx_3Bic8vCw9jiun7sXz_Twq0WbhfhjNZ2xND9ox8QrytFABHQ"></div>
+</div>
+<div class="border border-outline-variant rounded-xl p-stack-lg bg-surface soft-shadow">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-stack-sm">原型设计</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg">从低保真草图到中保真交互。</p>
+<div class="w-full aspect-square md:aspect-video rounded border border-outline-variant bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant">image</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Reflection Section -->
+<section class="max-w-3xl mx-auto text-center bg-surface-container-low p-stack-lg md:p-gutter rounded-xl border border-outline-variant soft-shadow">
+<div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-secondary-fixed text-on-secondary-fixed mb-stack-md">
+<span class="material-symbols-outlined">lightbulb</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary mb-stack-md">反思</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+            在这个项目中，通过分析HTML结构错误、标题层级不正确、视觉对比度不足等问题，我们认识到了以用户为中心设计网站的重要性。颜色必须提供足够的对比度，每一个功能都应该支持可用性，而简单的导航有助于用户快速理解他们需要采取的步骤。
+        </p>
+</section>
+<!-- Project Navigation -->
+<section class="border-t border-outline-variant pt-stack-lg pb-stack-lg"><div class="flex justify-between items-start">
+<a class="inline-flex items-center text-on-surface-variant hover:text-secondary font-label-caps text-label-caps transition-colors" href="#portfolio">
+<span class="material-symbols-outlined text-[16px] mr-2">arrow_back</span>
+        返回所有作品
+    </a>
+<div class="flex flex-col items-end">
+<span class="text-label-caps font-label-caps text-on-surface-variant mb-stack-xs">上一个项目</span>
+<a class="inline-flex items-center text-primary hover:text-secondary font-headline-sm text-headline-sm transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px] mr-2">arrow_back</span>
+            MSU Arts
+        </a>
+</div>
+</div></section>
+</main>
+<!-- Footer (Shared Component) -->
+
+
+
+
+
+</body></html>
