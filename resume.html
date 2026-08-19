@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人简历 - 吴贝然</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Manrope', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            primary: '#000000',
+            surface: '#f9f9ff',
+            'surface-container-low': '#f0f3ff',
+            'surface-container-lowest': '#ffffff',
+            'on-surface': '#151c27',
+            'on-surface-variant': '#444748',
+            secondary: '#4b41e1',
+            'outline-variant': '#c4c7c7',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="antialiased flex flex-col min-h-screen bg-surface text-on-surface">
+  <header class="bg-surface/85 backdrop-blur-md border-b border-outline-variant/40 sticky top-0 z-50 w-full">
+    <div class="max-w-[1200px] mx-auto px-6 h-20 flex justify-between items-center">
+      <a href="index.html" class="font-display font-extrabold text-2xl tracking-tight text-primary">吴贝然</a>
+      <nav class="hidden md:flex space-x-8 font-medium">
+        <a href="index.html" class="text-on-surface-variant hover:text-secondary transition-colors">首页</a>
+        <a href="index.html" class="text-on-surface-variant hover:text-secondary transition-colors">作品</a>
+        <a href="about.html" class="text-on-surface-variant hover:text-secondary transition-colors">关于</a>
+        <a href="resume.html" class="text-secondary border-b-2 border-secondary pb-1">简历</a>
+      </nav>
+      <a href="mailto:contact@example.com" class="hidden md:inline-flex items-center justify-center px-5 py-2.5 bg-primary text-white text-sm font-medium rounded hover:bg-opacity-90">联系我</a>
+    </div>
+  </header>
+
+  <main class="flex-grow w-full max-w-[900px] mx-auto px-6 py-16">
+    <div class="flex justify-between items-center mb-12 border-b border-outline-variant/40 pb-6">
+      <div>
+        <h1 class="font-display text-4xl font-extrabold text-primary mb-2">简历</h1>
+        <p class="text-on-surface-variant font-mono text-sm">Product Manager & UX Specialist</p>
+      </div>
+      <a href="#" onclick="alert('即将下载 PDF 简历')" class="px-4 py-2 border border-primary text-primary font-medium rounded hover:bg-primary hover:text-white transition-colors">下载 PDF</a>
+    </div>
+
+    <!-- Experience Section -->
+    <section class="mb-12">
+      <h2 class="font-mono text-xs text-secondary font-bold uppercase tracking-wider mb-6">工作经历</h2>
+      <div class="space-y-8">
+        <div class="border-l-2 border-secondary pl-6 relative">
+          <div class="font-display text-xl font-bold text-primary">产品设计师 / UX 研究员</div>
+          <div class="text-sm font-mono text-on-surface-variant mb-2">SmartNote 项目 • 2023 - 2024</div>
+          <p class="text-on-surface-variant">主导 SmartNote 教育助手产品交互设计，利用间隔重复算法与思维导图提炼提升学生知识存量，达成留存率提升 2.5 倍成果。</p>
+        </div>
+        <div class="border-l-2 border-outline-variant pl-6 relative">
+          <div class="font-display text-xl font-bold text-primary">UX 无障碍体验审计师</div>
+          <div class="text-sm font-mono text-on-surface-variant mb-2">Capital Area Housing Partnership • 2022 - 2023</div>
+          <p class="text-on-surface-variant">独立进行全面无障碍访问（a11y）审计与架构重构，使网站 WCAG 2.1 达标率显著提高。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="mb-12">
+      <h2 class="font-mono text-xs text-secondary font-bold uppercase tracking-wider mb-6">教育背景</h2>
+      <div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/40">
+        <div class="font-display text-lg font-bold text-primary">密西根州立大学 (Michigan State University)</div>
+        <div class="text-sm font-mono text-on-surface-variant">学士学位 • 人机交互 / 数字产品设计</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-outline-variant/30 py-8 bg-surface-container-low/50 mt-auto">
+    <div class="max-w-[1200px] mx-auto px-6 text-center text-sm text-on-surface-variant font-mono">
+      © 2026 Beiran Wu. Designed & Built with Precision & Insight.
+    </div>
+  </footer>
+</body>
+</html>

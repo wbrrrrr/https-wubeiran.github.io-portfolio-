@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于我 - 吴贝然</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Manrope', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            primary: '#000000',
+            surface: '#f9f9ff',
+            'surface-container-low': '#f0f3ff',
+            'surface-container-lowest': '#ffffff',
+            'on-surface': '#151c27',
+            'on-surface-variant': '#444748',
+            secondary: '#4b41e1',
+            'outline-variant': '#c4c7c7',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="antialiased flex flex-col min-h-screen bg-surface text-on-surface">
+  <header class="bg-surface/85 backdrop-blur-md border-b border-outline-variant/40 sticky top-0 z-50 w-full">
+    <div class="max-w-[1200px] mx-auto px-6 h-20 flex justify-between items-center">
+      <a href="index.html" class="font-display font-extrabold text-2xl tracking-tight text-primary">吴贝然</a>
+      <nav class="hidden md:flex space-x-8 font-medium">
+        <a href="index.html" class="text-on-surface-variant hover:text-secondary transition-colors">首页</a>
+        <a href="index.html" class="text-on-surface-variant hover:text-secondary transition-colors">作品</a>
+        <a href="about.html" class="text-secondary border-b-2 border-secondary pb-1">关于</a>
+        <a href="resume.html" class="text-on-surface-variant hover:text-secondary transition-colors">简历</a>
+      </nav>
+      <a href="mailto:contact@example.com" class="hidden md:inline-flex items-center justify-center px-5 py-2.5 bg-primary text-white text-sm font-medium rounded hover:bg-opacity-90">联系我</a>
+    </div>
+  </header>
+
+  <main class="flex-grow w-full max-w-[900px] mx-auto px-6 py-16">
+    <span class="font-mono text-xs text-secondary font-semibold uppercase tracking-wider block mb-2">ABOUT ME</span>
+    <h1 class="font-display text-4xl md:text-5xl font-extrabold text-primary mb-8">你好，我是吴贝然。</h1>
+    
+    <div class="space-y-6 text-lg text-on-surface-variant leading-relaxed">
+      <p>我是一名热衷于在**分析严谨性**与**直觉创意**之间寻找平衡的产品设计师与 UX 研究员。我关注如何利用数据分析、用户研究和可扩展的设计系统，将复杂的业务和技术问题转化为优雅、直观的数字产品体验。</p>
+      <p>我毕业于密西根州立大学 (MSU)，在人机交互、无障碍设计（WCAG）以及教育科技（EdTech）领域有深入的项目实践沉淀。</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
+      <div class="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/40">
+        <div class="font-mono text-xs text-secondary mb-2 font-bold uppercase">研究策略</div>
+        <h3 class="font-display text-lg font-bold text-primary mb-1">用户可用性审计</h3>
+        <p class="text-sm text-on-surface-variant">擅长定性访谈、可用性测试与数据埋点归因。</p>
+      </div>
+      <div class="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/40">
+        <div class="font-mono text-xs text-secondary mb-2 font-bold uppercase">交互架构</div>
+        <h3 class="font-display text-lg font-bold text-primary mb-1">设计系统构建</h3>
+        <p class="text-sm text-on-surface-variant">建立精细化 Token 与可扩展的设计规范体系。</p>
+      </div>
+      <div class="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/40">
+        <div class="font-mono text-xs text-secondary mb-2 font-bold uppercase">包容性设计</div>
+        <h3 class="font-display text-lg font-bold text-primary mb-1">无障碍标准 (a11y)</h3>
+        <p class="text-sm text-on-surface-variant">全面遵循 WCAG 2.1 标准，确保所有人平权享用产品。</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="border-t border-outline-variant/30 py-8 bg-surface-container-low/50 mt-auto">
+    <div class="max-w-[1200px] mx-auto px-6 text-center text-sm text-on-surface-variant font-mono">
+      © 2026 Beiran Wu. Designed & Built with Precision & Insight.
+    </div>
+  </footer>
+</body>
+</html>

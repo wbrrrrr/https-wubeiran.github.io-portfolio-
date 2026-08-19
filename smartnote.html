@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh" class="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartNote 案例研究 - 吴贝然</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container": "#e7eefe",
+            "surface": "#f9f9ff",
+            "error": "#ba1a1a",
+            "secondary": "#4b41e1",
+            "surface-container-lowest": "#ffffff",
+            "outline-variant": "#c4c7c7",
+            "primary": "#000000",
+            "on-surface": "#151c27",
+            "on-surface-variant": "#444748",
+            "surface-container-low": "#f0f3ff",
+          },
+          fontFamily: {
+            "metric-value": ["Manrope", "sans-serif"],
+            "label-caps": ["JetBrains Mono", "monospace"],
+            "headline-md": ["Manrope", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "headline-sm": ["Manrope", "sans-serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "display-lg": ["Manrope", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: theme('colors.surface'); color: theme('colors.on-surface'); }
+  </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+  <!-- TopNavBar -->
+  <nav class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-md border-b border-outline-variant/40">
+    <div class="flex justify-between items-center h-20 px-6 max-w-[1200px] mx-auto">
+      <a href="index.html" class="font-headline-sm font-extrabold text-2xl text-primary tracking-tight">吴贝然</a>
+      <div class="hidden md:flex items-center space-x-8 font-medium">
+        <a href="index.html" class="text-on-surface-variant hover:text-secondary transition-colors">首页</a>
+        <a href="index.html" class="text-secondary font-bold border-b-2 border-secondary pb-1">作品</a>
+        <a href="about.html" class="text-on-surface-variant hover:text-secondary transition-colors">关于</a>
+        <a href="resume.html" class="text-on-surface-variant hover:text-secondary transition-colors">简历</a>
+      </div>
+      <a href="mailto:contact@example.com" class="hidden md:block bg-primary text-white text-sm px-5 py-2.5 rounded font-medium hover:bg-opacity-90">联系我</a>
+    </div>
+  </nav>
+
+  <main class="flex-grow pt-[104px] pb-16 w-full">
+    <section class="px-6 max-w-[900px] mx-auto w-full mb-16">
+      <span class="inline-block font-label-caps text-xs bg-surface-container-low text-secondary font-semibold px-2.5 py-1 rounded mb-4 uppercase">案例研究 • 产品设计</span>
+      <h1 class="font-display-lg text-4xl md:text-6xl font-extrabold text-primary mb-3">SmartNote 智能笔记</h1>
+      <p class="font-headline-sm text-xl text-on-surface-variant mb-8 font-normal">基于 AI 与认知神经学构建的智能教育助手</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start border-t border-outline-variant/40 pt-8">
+        <div class="md:col-span-2">
+          <div class="mb-6">
+            <div class="font-label-caps text-xs text-outline mb-1 uppercase">职责角色</div>
+            <div class="font-body-md text-primary font-semibold">产品设计师 (Product Designer)</div>
+          </div>
+          <h2 class="font-headline-md text-2xl font-bold text-primary mb-3">项目概览</h2>
+          <p class="font-body-lg text-on-surface-variant leading-relaxed">
+            现代教育让学生们接收到大量零散的信息，主要通过密集的演示文稿进行。SmartNote 的构想是为了填补原始信息输入与实际知识保留之间的空白。通过自动将课程材料转化为视觉框架，并采用基于科学依据的间隔重复算法，我们旨在将消极的阅读转变为积极的掌握。
+          </p>
+        </div>
+        <div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant/40 text-center flex flex-col justify-center">
+          <span class="font-label-caps text-xs text-outline mb-2 uppercase block">核心效果</span>
+          <div class="font-metric-value text-5xl text-secondary mb-2">2.5倍</div>
+          <div class="font-body-md text-primary font-medium">知识留存率提升</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-full mb-20 bg-surface-container-lowest py-8 md:py-16 border-y border-outline-variant/30">
+      <div class="max-w-[1200px] mx-auto px-6">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4AmubC6J25qXGZdeQXmEng2POPx9eVE3FhzII_V0c5QhWFIgSS_jn_ssXznYaoRnmGAxEALebv6sekLwWFVOmso8k2IYEwLf5mvPJjskEHskq1xTyFMp2e9vhNILSW_U2NHTd2MYMnjMrBB_UxbwFhI_HwpJMhYbbTvCzsCJ-Mxb9gKT2Kb9Oddf19umInUAN-VRrReFgBPn5MqkUPx0ASrULOcTC13eXkUkyqDsgddHcpf-J6AQxwQJ-KxndPqwyIg" alt="SmartNote Mockup" class="w-full h-auto rounded-xl object-contain mx-auto max-h-[70vh] shadow-sm">
+      </div>
+    </section>
+
+    <div class="px-6 max-w-[1200px] mx-auto w-full">
+      <section class="mb-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="border border-error-container bg-surface-container-lowest rounded-xl p-8">
+            <div class="flex items-center gap-2 mb-6 text-error">
+              <span class="material-symbols-outlined">warning</span>
+              <h2 class="font-headline-sm text-xl font-bold">用户痛点</h2>
+            </div>
+            <ul class="space-y-6">
+              <li>
+                <h3 class="font-body-lg text-primary font-bold mb-1">信息深度过载</h3>
+                <p class="font-body-md text-on-surface-variant">学生们很难从每门课程数百页密集的课件中拆解并建立连贯的认知模型。</p>
+              </li>
+              <li>
+                <h3 class="font-body-lg text-primary font-bold mb-1">缺乏视觉化结构</h3>
+                <p class="font-body-md text-on-surface-variant">线性的笔记方式无法直观呈现复杂知识概念之间的内在逻辑关系。</p>
+              </li>
+            </ul>
+          </div>
+          <div class="bg-surface-container-low rounded-xl p-8 border border-secondary/30">
+            <div class="flex items-center gap-2 mb-6 text-secondary">
+              <span class="material-symbols-outlined">lightbulb</span>
+              <h2 class="font-headline-sm text-xl font-bold">解法与策略</h2>
+            </div>
+            <p class="font-body-lg text-primary italic mb-6">
+              "如果我们可以自动构建结构化数据，学生就能把认知精力集中在理解上，而非繁重的前期整理上。"
+            </p>
+            <div class="p-4 bg-surface-container-lowest rounded border border-outline-variant/40">
+              <div class="font-label-caps text-xs text-secondary mb-2 uppercase">核心假设</div>
+              <p class="font-body-md text-on-surface-variant">
+                将自动语义可视化（思维导图）与算法间隔重复结合，能降低建立有效复习习惯的门槛，大幅提升长期记忆留存率。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-20">
+        <h2 class="font-headline-md text-3xl font-bold text-primary mb-8">核心功能与执行</h2>
+        <div class="space-y-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/40">
+            <div class="order-2 md:order-1 h-64 rounded bg-surface-container border border-outline-variant/40 overflow-hidden relative">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhk5rOOQkhDV6hbBdVSlsXQOJ1LEoXjiAwvVnHHdLoMhjqdO7Xot6d-20YEmcW3fHmEMLI8BcBEM13IxvRSygUtkHiaa8zPcxfWieyOznafDj8T0OfNMjj2ApFgb29Z1F7TtU81DzLzciAW_WFcNUoB515k-xFr8m3YqziPmFWgOJNmVd8Iz8YCowU6Kyfgc519hcu3HNsMTLLunsbrRP05NN504RORmGJEoz_L1sP6J-fYW-duEP4" alt="Uploading Mode Mockup" class="object-cover w-full h-full">
+            </div>
+            <div class="order-1 md:order-2">
+              <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-secondary mb-4">
+                <span class="material-symbols-outlined">upload_file</span>
+              </div>
+              <h3 class="font-headline-sm text-2xl font-bold text-primary mb-2">01. 上传模式 (Upload)</h3>
+              <p class="font-body-md text-on-surface-variant leading-relaxed">无缝导入入口。用户放入 PPT 或 PDF 文件，系统利用 NLP 技术自动提取文本层级结构与核心关键术语。</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/40">
+            <div>
+              <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-secondary mb-4">
+                <span class="material-symbols-outlined">account_tree</span>
+              </div>
+              <h3 class="font-headline-sm text-2xl font-bold text-primary mb-2">02. 教授模式 (Professor)</h3>
+              <p class="font-body-md text-on-surface-variant leading-relaxed">核心价值。自动生成互动式、可导航的思维导图，用户可进行颜色编码、注释与编辑，生成清晰的视觉上下文。</p>
+            </div>
+            <div class="h-64 rounded bg-surface-container border border-outline-variant/40 overflow-hidden relative">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjH3ofr_2SGur2h94YgyP8OFoENUOhhTAYG4ATskL6goKklXw64PQIHUx62MitCtzjTJBwLb77dUjJWR04HRb7kZJnhKMT2MTu4R2o4mWgVCjqFA2R4Qp5ejR86iaST7SoTJTiNJTSAIa0KJk3XopJKnAMNPStrakYM1mMThiybaRynOEV18y96-QQqqrRDsewauDsblTeOWiUmzpA_60FOjXGDI1IxrV9vvZ_JSaXgM3IDNrSBK9w" alt="Professor Mode Mockup" class="object-cover w-full h-full">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/40">
+            <div class="order-2 md:order-1 h-64 rounded bg-surface-container border border-outline-variant/40 overflow-hidden relative">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDocvuSWni7Sf2Ta8Lb4G1qickodLzwmsLc71rQMVK7eJtKGIcIvGL7TJH7q5s-koSEBmifZtyc6P6cQ1WsydIcus2GREJXjXh4yHXAl-BuNHBVfrZ65ZDAMerydz_QChoWBzP4FY-N2dGDKE2BDvLNV78l58bD5jZtY4SkAy4nTjsdOKBVaBEej73hz_jIhYUlyyLJqGtuTD_RTkm36Op1gFVETnUjGwTGZAFrB7QSfB4u2UEZD8ny" alt="Memory Tracker Mode Mockup" class="object-cover w-full h-full">
+            </div>
+            <div class="order-1 md:order-2">
+              <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-secondary mb-4">
+                <span class="material-symbols-outlined">memory</span>
+              </div>
+              <h3 class="font-headline-sm text-2xl font-bold text-primary mb-2">03. 记忆追踪器 (Memory Tracker)</h3>
+              <p class="font-body-md text-on-surface-variant leading-relaxed">导图节点可一键转化为卡片，配合内置的艾宾浩斯记忆曲线算法，智能规划最佳复习时机。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-20">
+        <h2 class="font-headline-md text-3xl font-bold text-primary mb-8">量化成果与影响</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/40 text-center">
+            <div class="font-metric-value text-4xl font-bold text-secondary mb-2">2.5倍</div>
+            <div class="font-body-md text-on-surface-variant">长期记忆留存率</div>
+          </div>
+          <div class="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/40 text-center">
+            <div class="font-metric-value text-4xl font-bold text-secondary mb-2">85%</div>
+            <div class="font-body-md text-on-surface-variant">7天次留活跃率</div>
+          </div>
+          <div class="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/40 text-center">
+            <div class="font-metric-value text-4xl font-bold text-secondary mb-2">40%</div>
+            <div class="font-body-md text-on-surface-variant">复习备考时间节省</div>
+          </div>
+          <div class="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/40 text-center">
+            <div class="font-metric-value text-4xl font-bold text-secondary mb-2">9/10</div>
+            <div class="font-body-md text-on-surface-variant">NPS 用户推荐指数</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="pt-8 border-t border-outline-variant/40 flex justify-between items-center">
+        <a href="index.html" class="inline-flex items-center gap-2 text-on-surface-variant hover:text-secondary transition-colors font-medium">
+          <span class="material-symbols-outlined text-sm">arrow_back</span> 返回所有作品
+        </a>
+        <a href="housing.html" class="inline-flex items-center gap-2 text-primary hover:text-secondary transition-colors font-bold">
+          下一个：首都地区住房合作伙伴 <span class="material-symbols-outlined text-lg">arrow_forward</span>
+        </a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="border-t border-outline-variant/30 py-8 bg-surface-container-low/50 mt-auto">
+    <div class="max-w-[1200px] mx-auto px-6 text-center text-sm text-on-surface-variant font-mono">
+      © 2026 Beiran Wu. Designed & Built with Precision & Insight.
+    </div>
+  </footer>
+</body>
+</html>
