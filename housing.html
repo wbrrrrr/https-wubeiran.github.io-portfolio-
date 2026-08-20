@@ -1,87 +1,412 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html class="scroll-smooth" lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>首都地区住房合作伙伴 - 案例分析</title>
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            display: ['Manrope', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace'],
-          },
-          colors: {
-            primary: '#000000',
-            surface: '#f9f9ff',
-            'surface-container-low': '#f0f3ff',
-            'surface-container-lowest': '#ffffff',
-            'on-surface': '#151c27',
-            'on-surface-variant': '#444748',
-            secondary: '#4b41e1',
-            'outline-variant': '#c4c7c7',
-          }
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Capital Area Housing Partnership - 吴贝然</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface": "#f9f9ff",
+                        "surface-dim": "#d3daea",
+                        "surface-bright": "#f9f9ff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f0f3ff",
+                        "surface-container": "#e7eefe",
+                        "surface-container-high": "#e2e8f8",
+                        "surface-container-highest": "#dce2f3",
+                        "on-surface": "#151c27",
+                        "on-surface-variant": "#444748",
+                        "inverse-surface": "#2a313d",
+                        "inverse-on-surface": "#ebf1ff",
+                        "outline": "#747878",
+                        "outline-variant": "#c4c7c7",
+                        "surface-tint": "#5f5e5e",
+                        "primary": "#000000",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#1c1b1b",
+                        "on-primary-container": "#858383",
+                        "inverse-primary": "#c8c6c5",
+                        "secondary": "#4b41e1",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#645efb",
+                        "on-secondary-container": "#fffbff",
+                        "tertiary": "#000000",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#191c1d",
+                        "on-tertiary-container": "#828485",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#e5e2e1",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-primary-fixed-variant": "#474646",
+                        "secondary-fixed": "#e2dfff",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "on-secondary-fixed": "#0f0069",
+                        "on-secondary-fixed-variant": "#3323cc",
+                        "tertiary-fixed": "#e1e3e4",
+                        "tertiary-fixed-dim": "#c5c7c8",
+                        "on-tertiary-fixed": "#191c1d",
+                        "on-tertiary-fixed-variant": "#454748",
+                        "background": "#f9f9ff",
+                        "on-background": "#151c27",
+                        "surface-variant": "#dce2f3"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "sm": "0.125rem",
+                        "md": "0.375rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "stack-xs": "4px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "stack-lg": "24px",
+                        "gutter": "32px",
+                        "section-gap-sm": "80px",
+                        "section-gap-lg": "160px",
+                        "container-max": "1200px"
+                    },
+                    fontFamily: {
+                        "display-lg": ["Manrope", "sans-serif"],
+                        "display-lg-mobile": ["Manrope", "sans-serif"],
+                        "headline-md": ["Manrope", "sans-serif"],
+                        "headline-sm": ["Manrope", "sans-serif"],
+                        "metric-value": ["Manrope", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "label-caps": ["JetBrains Mono", "monospace"]
+                    },
+                    fontSize: {
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "metric-value": ["48px", { "lineHeight": "1.0", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }]
+                    }
+                }
+            }
         }
-      }
-    }
-  </script>
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
 </head>
-<body class="antialiased flex flex-col min-h-screen bg-surface text-on-surface">
-  <header class="bg-surface/85 backdrop-blur-md border-b border-outline-variant/40 sticky top-0 z-50 w-full">
-    <div class="max-w-[1200px] mx-auto px-6 h-20 flex justify-between items-center">
-      <a href="index.html" class="font-display font-extrabold text-2xl tracking-tight text-primary">吴贝然</a>
-      <nav class="hidden md:flex space-x-8 font-medium">
-        <a href="index.html" class="text-on-surface-variant hover:text-secondary">首页</a>
-        <a href="index.html" class="text-secondary font-bold border-b-2 border-secondary pb-1">作品</a>
-        <a href="about.html" class="text-on-surface-variant hover:text-secondary">关于</a>
-        <a href="resume.html" class="text-on-surface-variant hover:text-secondary">简历</a>
-      </nav>
-      <a href="mailto:contact@example.com" class="hidden md:inline-flex items-center justify-center px-5 py-2.5 bg-primary text-white text-sm font-medium rounded hover:bg-opacity-90">联系我</a>
-    </div>
-  </header>
+<body class="bg-background text-on-surface font-body-lg antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed min-h-screen flex flex-col">
 
-  <main class="flex-grow w-full max-w-[1000px] mx-auto px-6 py-12">
-    <span class="font-mono text-xs text-secondary font-semibold uppercase tracking-wider block mb-2">UX 研究 & 无障碍体验审计</span>
-    <h1 class="font-display text-4xl md:text-5xl font-extrabold text-primary mb-6">首都地区住房合作伙伴网页重构</h1>
-    
-    <div class="bg-surface-container-lowest border border-outline-variant/40 rounded-xl overflow-hidden mb-12 shadow-sm">
-      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA24vGn1doqZ2tKoaY3u46bcWYOo3dq57G5vlxUyoiu7k8Xx-b8wD3qVeFQr7qi6jsGB7HwN4MugCF_UIBUHU4eJD9cdfyOWcgb2gOd_54JQma7Vkaq2Zp0iC70J6jxGXx2GlTMe5_2bk5al6zZgJm3wNqvApxXau3yaV8MZFQ8hrAOcne8Gm6wt7dc1nYNXFEKFWgXVOket8V1Y3o-l_8QDicpZf9Vl_R-4VxsPWo5RDqaqXBKGaZEbIzdk3UqTCdLMg" alt="Housing Project" class="w-full h-auto object-cover max-h-[500px]">
-    </div>
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 w-full bg-surface/80 backdrop-blur-md border-b border-outline-variant/30">
+        <div class="max-w-container-max mx-auto px-gutter h-20 flex items-center justify-between">
+            <a href="#" class="font-headline-md text-primary hover:opacity-80 transition-opacity">吴贝然</a>
+            
+            <nav class="hidden md:flex items-center gap-stack-lg">
+                <a href="#" class="text-on-surface-variant hover:text-primary transition-colors">首页</a>
+                <a href="#" class="text-secondary border-b-2 border-secondary pb-1 font-semibold">作品</a>
+                <a href="#" class="text-on-surface-variant hover:text-primary transition-colors">关于</a>
+                <a href="#" class="text-on-surface-variant hover:text-primary transition-colors">简历</a>
+            </nav>
 
-    <div class="prose max-w-none text-on-surface-variant leading-relaxed space-y-6">
-      <h2 class="font-display text-2xl font-bold text-primary">项目背景与目标</h2>
-      <p>进行了广泛的无障碍体验审计（Accessibility Audit），并主导了重新设计工作，以确保包容性的数字体验。帮助不同身体与认知能力的用户获得平等的非营利住房服务资源。</p>
-      
-      <h2 class="font-display text-2xl font-bold text-primary">关键成效 (Key Outcomes)</h2>
-      <ul class="list-disc pl-6 space-y-2 font-medium text-primary">
-        <li>WCAG 2.1 AA 标准达标率提升至 100%</li>
-        <li>色彩对比度违规清零，全站支持屏幕阅读器完整导航</li>
-        <li>表单提交失败率降低 35%</li>
-      </ul>
-    </div>
+            <div class="hidden md:flex items-center">
+                <a href="#" class="bg-primary text-on-primary px-stack-lg py-stack-sm rounded hover:opacity-90 transition-opacity font-body-md font-semibold">联系我</a>
+            </div>
 
-    <div class="pt-12 mt-12 border-t border-outline-variant/40 flex justify-between items-center">
-      <a href="index.html" class="inline-flex items-center gap-2 text-on-surface-variant hover:text-secondary font-medium">
-        <span class="material-symbols-outlined text-sm">arrow_back</span> 返回所有作品
-      </a>
-      <a href="msu-arts.html" class="inline-flex items-center gap-2 text-primary hover:text-secondary font-bold">
-        下一个：密西根州立大学艺术馆 <span class="material-symbols-outlined text-lg">arrow_forward</span>
-      </a>
-    </div>
-  </main>
+            <button class="md:hidden text-primary p-stack-sm" aria-label="Menu">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </header>
 
-  <footer class="border-t border-outline-variant/30 py-8 bg-surface-container-low/50 mt-auto">
-    <div class="max-w-[1200px] mx-auto px-6 text-center text-sm text-on-surface-variant font-mono">
-      © 2026 Beiran Wu. Designed & Built with Precision & Insight.
-    </div>
-  </footer>
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="max-w-container-max mx-auto px-gutter pt-12 pb-section-gap-sm lg:pt-16">
+            <div class="flex flex-col gap-stack-lg">
+                <div>
+                    <span class="inline-block bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps px-stack-sm py-stack-xs rounded uppercase">案例分析</span>
+                </div>
+                
+                <h1 class="font-display-lg-mobile lg:font-display-lg text-primary tracking-tight">首都地区住房合作伙伴</h1>
+                
+                <div class="flex flex-col lg:flex-row gap-gutter justify-between items-start pt-stack-md">
+                    <p class="text-on-surface-variant text-body-lg max-w-2xl">
+                        Capital Area Housing Partnership 是一家位于密歇根州东兰辛市的非营利组织。我们的项目致力于调研客户对其网站的疑虑，并提交可交付成果以满足客户的需求。我们建议的改进旨在提高可访问性，并为网站用户创建实用的界面。[cite: 10]
+                    </p>
+                    
+                    <div class="flex flex-wrap sm:flex-nowrap gap-gutter">
+                        <div class="min-w-[120px]">
+                            <p class="font-label-caps text-label-caps text-on-surface-variant mb-stack-xs uppercase">角色</p>
+                            <p class="font-headline-sm text-body-lg text-primary">UX 研究员</p>[cite: 10]
+                        </div>
+                        <div class="min-w-[120px]">
+                            <p class="font-label-caps text-label-caps text-on-surface-variant mb-stack-xs uppercase">项目周期</p>
+                            <p class="font-headline-sm text-body-lg text-primary">2023年秋季</p>[cite: 10]
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-stack-lg">
+                    <div class="rounded-xl overflow-hidden shadow-sm border border-outline-variant/30 bg-white">
+                        <img alt="Capital Area Housing Partnership Logo" class="w-full h-auto object-contain max-h-[400px] p-8 mx-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQVauL2R9YfybG9uuvfLtY13n5ncGOcolhEpXrrPyO4LgDuHYebacHmgBDwdTy85xfwlKV7u_pZvnW2QFq_5t-7EmNMz68HHYOWddWKjdRFyscbH4Ze4ljSDN4A420Wqxg0bCuHXtrscNn9jrfraSrDnyGPoM86HcutxWEnK-KvmL5BnRRL4T5xs7NvuJb173gnKX0UwUdnzr6l7yTSFc0tVKSxejMte3DMDRGv9NJvZPDemOSqxcOxr6fj4NlsADk3Q">[cite: 10]
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research & Audit Section -->
+        <section class="bg-surface-container-lowest py-20 border-t border-outline-variant/20">
+            <div class="max-w-container-max mx-auto px-gutter">
+                <div class="mb-stack-lg max-w-3xl">
+                    <h2 class="font-headline-md text-primary mb-stack-sm">调研方法与审计</h2>[cite: 10]
+                    <p class="text-on-surface-variant text-body-lg">全面分析以识别现有平台中的入门障碍和可用性摩擦点。</p>[cite: 10]
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mt-12">
+                    <!-- Method 1 -->
+                    <div class="bg-surface p-stack-lg rounded-xl border border-outline-variant/30 shadow-[0_4px_24px_rgba(75,65,225,0.04)] hover:shadow-[0_8px_32px_rgba(75,65,225,0.08)] transition-shadow duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mb-stack-md text-secondary">
+                                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">code</span>[cite: 10]
+                            </div>
+                            <h3 class="font-headline-sm text-primary mb-stack-sm">W3C 标记验证</h3>[cite: 10]
+                            <p class="text-body-md text-on-surface-variant">该网站通过了 W3C 标记验证服务的运行。结果出现多个 HTML 问题：解析错误、不完整的属性错误、杂散的结束链接、空格错误和无效的颜色语法。这些会导致渲染错误并阻碍辅助设备的使用。</p>[cite: 10]
+                        </div>
+                    </div>
+
+                    <!-- Method 2 -->
+                    <div class="bg-surface p-stack-lg rounded-xl border border-outline-variant/30 shadow-[0_4px_24px_rgba(75,65,225,0.04)] hover:shadow-[0_8px_32px_rgba(75,65,225,0.08)] transition-shadow duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mb-stack-md text-secondary">
+                                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">accessibility_new</span>[cite: 10]
+                            </div>
+                            <div class="flex items-baseline justify-between mb-stack-sm">
+                                <h3 class="font-headline-sm text-primary">无障碍测试</h3>[cite: 10]
+                                <span class="font-metric-value text-headline-md text-error">75/100</span>[cite: 10]
+                            </div>
+                            <p class="text-body-md text-on-surface-variant">未能为链接提供可识别的文本，未能达到 WCAG A 级标准。标题语义排序的问题为使用辅助技术的用户造成了障碍。屏幕阅读器测试通过以确保基本支持。</p>[cite: 10]
+                        </div>
+                    </div>
+
+                    <!-- Method 3 -->
+                    <div class="bg-surface p-stack-lg rounded-xl border border-outline-variant/30 shadow-[0_4px_24px_rgba(75,65,225,0.04)] hover:shadow-[0_8px_32px_rgba(75,65,225,0.08)] transition-shadow duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mb-stack-md text-secondary">
+                                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bug_report</span>[cite: 10]
+                            </div>
+                            <h3 class="font-headline-sm text-primary mb-stack-sm">WAVE 工具分析</h3>[cite: 10]
+                            <p class="text-body-md text-on-surface-variant">专门通过 WAVE 工具运行了捐赠页面。发现了 HTML 错误、字体大小错误、颜色对比度错误和结构元素错误。影响可感知性、可操作性、可理解性和鲁棒性。</p>[cite: 10]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem vs Solution Section -->
+        <section class="py-20">
+            <div class="max-w-container-max mx-auto px-gutter">
+                <div class="mb-12 max-w-3xl">
+                    <h2 class="font-headline-md text-primary mb-stack-sm">核心发现与建议</h2>[cite: 10]
+                    <p class="text-on-surface-variant text-body-lg">将审计发现转化为可操作的结构化解决方案，以改善核心用户体验。</p>[cite: 10]
+                </div>
+
+                <div class="flex flex-col gap-gutter">
+                    <!-- Pair 1 -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 border border-outline-variant/30 rounded-xl overflow-hidden shadow-sm">
+                        <div class="bg-surface-container-low p-stack-lg lg:p-gutter border-b lg:border-b-0 lg:border-r border-outline-variant/30 flex flex-col justify-between">
+                            <div>
+                                <div class="mb-stack-md">
+                                    <span class="bg-error-container text-on-error-container font-label-caps text-label-caps px-2 py-1 rounded inline-block">问题 01</span>[cite: 10]
+                                </div>
+                                <h3 class="font-headline-sm text-primary mb-stack-sm">问题 01：标题层级与结构</h3>[cite: 10]
+                                <p class="text-body-md text-on-surface-variant mb-stack-md">网站未能通过视觉和结构可访问性测试，特别是标题（从 H1 到 H6）缺乏正确的层级顺序。</p>[cite: 10]
+                            </div>
+                            <div class="mt-stack-lg rounded-lg overflow-hidden border border-outline-variant/30 bg-white p-stack-sm">
+                                <img alt="Failing Code Segment showing H5 heading used incorrectly" class="w-full h-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtZEQr-iuhBWoz3RcuOp4_bueJX8akejJLUtYHbpeXZaZCITaOeqP8JpQSdicno41vDxoGFxcS4YVI5BVFXa-Uah2ZJXZyOF9qJCVw5HIHFWmD_Kf7t5AlDNMS2w5KiosMt38cPhQ9q2i1bqtSOKv88thhbxNNA_b06CC97ng6pb6ncMj98RYR_NPQxMXXaJF3Usq6rnhLWYzkMRnC3IWCvOOBzq-NVdBXRWZjPIwKjW9RO08NV_xPwBlSTSs506EPOw">[cite: 10]
+                            </div>
+                        </div>
+                        <div class="bg-surface p-stack-lg lg:p-gutter flex flex-col justify-between">
+                            <div>
+                                <div class="mb-stack-md">
+                                    <span class="bg-secondary/10 text-secondary font-label-caps text-label-caps px-2 py-1 rounded inline-block">解决方案</span>[cite: 10]
+                                </div>
+                                <h3 class="font-headline-sm text-primary mb-stack-sm">解决方案：语义重构</h3>[cite: 10]
+                                <p class="text-body-md text-on-surface-variant mb-stack-md">在 HTML 中以 1 级标题作为主标题开始。然后仔细遵循正确的层次结构顺序（级别 2、3 等），以确保屏幕阅读器能够准确解释页面结构。</p>[cite: 10]
+                            </div>
+                            <div class="mt-stack-lg rounded-lg overflow-hidden border border-outline-variant/30 bg-white p-stack-sm">
+                                <img alt="Corrected Code Segment Solution showing proper heading hierarchy" class="w-full h-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1lzwkYuc-dCVYB9H8OZkGX4WV0eXZ20f85h5IdThZs7Vz7M4vTdODz_8WYXpPf1EIPKWsmLsba6iD05ooR08WD3SAc1Y_R-MJA2uYLDy6Fy48RNNrhCds8H3CQytknwiy26Ek4c4qpGlrOerpT7TV8uKwQWORO_2b2a3OwnSFZxI2AccA7a7uoFd_XKDlyxRj8YUAIwRuS_P5EnWTfGq1hgR60kSgIklQXXpQpDyuz8TyAhtpaXtpBTqwSE6LyzU9iw">[cite: 10]
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pair 2 -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 border border-outline-variant/30 rounded-xl overflow-hidden shadow-sm">
+                        <div class="bg-surface-container-low p-stack-lg lg:p-gutter border-b lg:border-b-0 lg:border-r border-outline-variant/30 flex flex-col justify-between">
+                            <div>
+                                <div class="mb-stack-md">
+                                    <span class="bg-error-container text-on-error-container font-label-caps text-label-caps px-2 py-1 rounded inline-block">问题 02</span>[cite: 10]
+                                </div>
+                                <h3 class="font-headline-sm text-primary mb-stack-sm">问题 02：HTML 解析与属性</h3>[cite: 10]
+                                <p class="text-body-md text-on-surface-variant mb-stack-md">各种 HTML 问题给辅助技术和渲染错误带来了困难。具体来说，是解析错误和元素缺少必需的属性。</p>[cite: 10]
+                            </div>
+                            <div class="mt-stack-lg rounded-lg overflow-hidden border border-outline-variant/30 bg-white p-stack-sm">
+                                <img alt="Failing Code Segment showing missing src attribute and CSS parse error" class="w-full h-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUuRTqhEXhoQ7eKYpOYj4BKVgp7DubncEY4sZ1PbFJCH42dMl7yVTfsJRe2JKEhd0McNl6lsXpl3bevdj2j_hUJsX6oqlh9oxnwCZEytkqQ8YfYu5IgXBGOr6nZnGPHbxKJgalxFGZGJ19qY9R9MliBPPAmjrxH-rvCngy58uUngfiATk5pCRt_5FvH2U3N8ouUBTjRhrgueyK8ghwkFe95CPknz50V5SNxcGJCX7W0lj_rljxe-BCubIdQ825EtHDuA">[cite: 10]
+                            </div>
+                        </div>
+                        <div class="bg-surface p-stack-lg lg:p-gutter flex flex-col justify-between">
+                            <div>
+                                <div class="mb-stack-md">
+                                    <span class="bg-secondary/10 text-secondary font-label-caps text-label-caps px-2 py-1 rounded inline-block">解决方案</span>[cite: 10]
+                                </div>
+                                <h3 class="font-headline-sm text-primary mb-stack-sm">解决方案：代码重构</h3>[cite: 10]
+                                <p class="text-body-md text-on-surface-variant mb-stack-md">强制执行正确的 CSS 语法用于选择器并完成动画属性。系统地审核并完成网站中所有 img 元素缺失的属性。</p>[cite: 10]
+                            </div>
+                            <div class="mt-stack-lg rounded-lg overflow-hidden border border-outline-variant/30 bg-white p-stack-sm">
+                                <img alt="Code Segment Solution showing proper CSS syntax and image attributes" class="w-full h-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDg_KmxPJPkk6vEGMP8_nksPvbGqTQ8D3A80qjO3e4SCaQVbkQi5NzA0iUx3lLJkiZ6P6jl6d7z6_KhY57xA0I9OrNXIhTGeSd79q5sUl755_Z1j8phawtUKwHIAetggP-VomarxWlVm3o82sgiaCgGoWZ1pTxs6K0cAEoadfTIPB317Cbkr1Jxd2WIHjJkYSkFSUdEPV1tB8RWT9fqeHrnMJZSWkeBXysxkgjApYrTqHawSN11B4txseSHu4DOj00z_Q">[cite: 10]
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pair 3 -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 border border-outline-variant/30 rounded-xl overflow-hidden shadow-sm">
+                        <div class="bg-surface-container-low p-stack-lg lg:p-gutter border-b lg:border-b-0 lg:border-r border-outline-variant/30 flex flex-col justify-between">
+                            <div>
+                                <div class="mb-stack-md">
+                                    <span class="bg-error-container text-on-error-container font-label-caps text-label-caps px-2 py-1 rounded inline-block">问题 03</span>[cite: 10]
+                                </div>
+                                <h3 class="font-headline-sm text-primary mb-stack-sm">问题 03：捐赠流程体验与对比度</h3>[cite: 10]
+                                <p class="text-body-md text-on-surface-variant mb-stack-md">导航栏中有多个颜色对比度错误。捐款页面包含信息过载、主要操作按钮放置不当以及支付方式路由不连贯的问题。</p>[cite: 10]
+                            </div>
+                            <div class="mt-stack-lg rounded-lg overflow-hidden border border-outline-variant/30 bg-white p-stack-sm">
+                                <img alt="CAHP Website Screenshot" class="w-full h-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGMXHlwLI_5ErT-g038QVhQFcVCxOl0hx_DSR5R2P5Doi7vO-8QcOEAlg1fwCFjDe6ddIqbDrZtvxTLrnhA-2lMXUQAi0Gb69LF_a23jGEk3JzM-RzuOYHPK6ue1Q3HSY0OoDwjMDGo__myYE7FQFs7Vk5fsppmXA25H7U89oWSrKjLlb9eN1boZbANfH9RWi6y-8BqrPODrux7FA-REhTBVu93EhGqvmo35SuIf-ZoaXRUjOdw2J5qx8bLZVC0ul6zg">[cite: 10]
+                            </div>
+                        </div>
+                        <div class="bg-surface p-stack-lg lg:p-gutter flex flex-col justify-between">
+                            <div>
+                                <div class="mb-stack-md">
+                                    <span class="bg-secondary/10 text-secondary font-label-caps text-label-caps px-2 py-1 rounded inline-block">解决方案</span>[cite: 10]
+                                </div>
+                                <h3 class="font-headline-sm text-primary mb-stack-sm">解决方案：捐赠页面重新设计</h3>[cite: 10]
+                                <p class="text-body-md text-on-surface-variant mb-stack-md">彻底重新设计捐赠页面，以提供更易于访问和直观的 UI，同时牢记我们的原型角色（Cathy Johnson）。简化支付路由并修复导航对比度。</p>[cite: 10]
+                            </div>
+                            <div class="mt-stack-lg rounded-lg overflow-hidden border border-outline-variant/30 shadow-sm">
+                                <img alt="User Persona: Cathy Johnson" class="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdTkITVL6pa5peWgqWQCipIhjZ7KRf1nwM-LMlfIqTs5eF-KYEvQsWvZ3YPXaqinAXIqOUtXA0-7VX86hnoseTAlXeNkATid5bkAr8jX6HfN3ZMpWDIxnGwcn5J6iYz5igyapOJCLClS3vL8dlqWpkeyg33nbgT-_mSjBO3NVXAlDNqR7IxhsE2RNlC8Qfo3aQzFWjPLc_PE32qIbpyYXOSrZT5wMxKvBJhCQIB2CzmUUFKAs7mIuAzoH2zh7DZiiIBA">[cite: 10]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mockups Showcase Section -->
+        <section class="bg-surface-container-lowest py-20 border-t border-outline-variant/20">
+            <div class="max-w-container-max mx-auto px-gutter">
+                <div class="mb-12 text-center max-w-2xl mx-auto">
+                    <h2 class="font-headline-md text-primary mb-stack-sm">界面重构设计</h2>[cite: 10]
+                    <p class="text-on-surface-variant text-body-lg">高保真模型侧重于清晰的导航、改善的对比度以及无摩擦的捐赠体验。</p>[cite: 10]
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter mb-gutter">
+                    <div class="flex flex-col gap-stack-md">
+                        <div class="bg-surface border border-outline-variant/30 p-stack-sm rounded-xl shadow-[0_4px_24px_rgba(75,65,225,0.04)] overflow-hidden">
+                            <img alt="Redesigned Navigation Bar" class="w-full h-auto rounded-lg hover:scale-[1.02] transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC35fwiitYIYNeorFv8S7sGb0Z7YVIWSca5cjXJqubgjoZCLkEg75wkOXzOISA8T3yp5wQfVa6aVFYlyAykaW6a5bYVjumuQVIpstRlqwMLw28Cb5oZi4nYQujkeUFGgwChvkACNxW_YNOubTtM0FAMH-TZbCVIOJDLirO9tn2LqOKf25m82pvjTORspsyCNs_Nc6Uoo29TdLSf0z45B2uINMbwGoGg-XocuWIA4mmMlzxsXfpXhhR0KelbaHn6tRMMSA">[cite: 10]
+                        </div>
+                        <div class="px-stack-sm">
+                            <h4 class="font-headline-sm text-primary mb-1">导航与对比度优化</h4>[cite: 10]
+                            <p class="text-body-md text-on-surface-variant">修复了颜色对比度问题。实现了悬停状态颜色变化和一个备用下拉栏，以方便访问捐赠选项，减少不必要的滚动。</p>[cite: 10]
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-stack-md">
+                        <div class="bg-surface border border-outline-variant/30 p-stack-sm rounded-xl shadow-[0_4px_24px_rgba(75,65,225,0.04)] overflow-hidden">
+                            <img alt="Learn More Page" class="w-full h-auto rounded-lg hover:scale-[1.02] transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4ek3Cmsr4eMMz7wGRPPVisJnJ_YOhNObD92c4eXUYy75K7hgpb2-pjIQTzlrJ-t2XJ3evE3Oa7HaCZLDul6NTwAF9BUsKteXJ0yMEjijte5j2GPIPMBuGL8oQw7t1m9s-xZqv6qlL0UjqrWSlG3M3sBwPnP6w7TMmpg0l0z7OcqYe6Ac_9frq2NwVOAEiNH_I6G8auQvEk8ZTfiaHV_XNTU7ud5p05iSvLgnoFoAh3m0t_B-D0nb0Tfu9zqnRoYQfGg">[cite: 10]
+                        </div>
+                        <div class="px-stack-sm">
+                            <h4 class="font-headline-sm text-primary mb-1">“了解更多”跳转逻辑</h4>[cite: 10]
+                            <p class="text-body-md text-on-surface-variant">“了解更多”页面提供上下文信息，并允许用户通过清晰的分层操作调用，轻松路由到“在线捐赠”和“邮寄捐赠”选项卡。</p>[cite: 10]
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Full Width Mockup -->
+                <div class="bg-surface border border-outline-variant/30 p-stack-lg lg:p-gutter rounded-xl shadow-[0_4px_24px_rgba(75,65,225,0.04)] mt-gutter">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+                        <div class="lg:col-span-5 order-2 lg:order-1">
+                            <h3 class="font-headline-sm text-primary mb-stack-md">嵌入式捐赠流程</h3>[cite: 10]
+                            <ul class="text-body-md text-on-surface-variant flex flex-col gap-stack-sm">
+                                <li class="flex items-start gap-2">
+                                    <span class="material-symbols-outlined text-secondary mt-1 text-[18px]">check_circle</span>[cite: 10]
+                                    <span>两个主要选项：一次性和每月订阅。</span>[cite: 10]
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="material-symbols-outlined text-secondary mt-1 text-[18px]">check_circle</span>[cite: 10]
+                                    <span>预选支付层级以及自定义金额输入。</span>[cite: 10]
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="material-symbols-outlined text-secondary mt-1 text-[18px]">check_circle</span>[cite: 10]
+                                    <span>集成支付方式（PayPal、银行、信用卡）。</span>[cite: 10]
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="material-symbols-outlined text-secondary mt-1 text-[18px]">check_circle</span>[cite: 10]
+                                    <span>简化姓名、电子邮件、电话和可选消息的输入。</span>[cite: 10]
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="lg:col-span-7 order-1 lg:order-2">
+                            <img alt="Embedded Donation Form UI" class="w-full h-auto border border-outline-variant/20 rounded-lg shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPu5HiyI1LDCDF_P14zt1BOud-xpMjuIRiIb-yrmKCLJbbf84tUIpUNQBMku3h-0eHQ43eGRjSbuQzJN32Hd367WKCFxS-WGDgQzsRbzFQ0rr0DwhwSVC9DLPQ5UO5tzkbcJ1xvU1olEvC6YJRRg7-z-h89X-uyRwrEdwdZSmLM3BScJCnvIkQbo2MZBdVNoi193NJH7E8VP0hMRgJ2-TNOrhU4WXsyWXc6qtecSAT1nirPlpVA_Ac_cdhDMzQKW7E3BpXCo9OgZk5cA">[cite: 10]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reflection Section -->
+        <section class="py-20 bg-surface-container-low">
+            <div class="max-w-3xl mx-auto px-gutter text-center">
+                <span class="material-symbols-outlined text-secondary text-5xl mb-stack-md inline-block" style="font-variation-settings: 'FILL' 1;">lightbulb</span>[cite: 10]
+                <h2 class="font-headline-md text-primary mb-stack-lg">项目反思</h2>[cite: 10]
+                <p class="text-body-lg text-on-surface-variant leading-relaxed">
+                    在本次项目中，通过分析 HTML 结构错误、标题层次不正确和视觉对比度不足等问题，我们认识到以用户为中心设计网站的重要性。颜色必须提供足够的对比度，每个功能都应支持可用性，而简单的导航有助于用户快速了解他们需要采取的步骤。[cite: 10]
+                </p>
+                
+                <div class="mt-16 flex flex-col sm:flex-row justify-between items-center gap-stack-lg border-t border-outline-variant/30 pt-stack-lg">
+                    <a class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2 text-body-md font-medium" href="#">
+                        <span class="material-symbols-outlined text-[20px]">arrow_back</span>[cite: 10]
+                        返回所有作品[cite: 10]
+                    </a>
+                    
+                    <div class="flex flex-col items-center sm:items-end">
+                        <span class="text-label-caps text-on-surface-variant mb-1 uppercase">下一个项目</span>[cite: 10]
+                        <a class="flex items-center gap-2 font-headline-sm font-bold text-primary hover:text-secondary transition-colors" href="#">
+                            SmartNote[cite: 10]
+                            <span class="material-symbols-outlined">arrow_forward</span>[cite: 10]
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-surface-container-lowest border-t border-outline-variant/20 py-8 text-center text-body-md text-on-surface-variant">
+        <div class="max-w-container-max mx-auto px-gutter">
+            <p>&copy; 2026 吴贝然. All rights reserved.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
