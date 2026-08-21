@@ -1,293 +1,296 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>吴贝然 - 简历</title>
-    
-    <!-- 引入 Design System 指定的三款字体与图标 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS 配置与 Design System 变量注入 -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              surface: "#f9f9ff",
-              "surface-dim": "#d3daea",
-              "surface-bright": "#f9f9ff",
-              "surface-container-lowest": "#ffffff",
-              "surface-container-low": "#f0f3ff",
-              "surface-container": "#e7eefe",
-              "surface-container-high": "#e2e8f8",
-              "surface-container-highest": "#dce2f3",
-              "on-surface": "#151c27",
-              "on-surface-variant": "#444748",
-              "inverse-surface": "#2a313d",
-              "inverse-on-surface": "#ebf1ff",
-              outline: "#747878",
-              "outline-variant": "#c4c7c7",
-              "surface-tint": "#5f5e5e",
-              primary: "#000000",
-              "on-primary": "#ffffff",
-              "primary-container": "#1c1b1b",
-              "on-primary-container": "#858383",
-              "inverse-primary": "#c8c6c5",
-              secondary: "#4b41e1",
-              "on-secondary": "#ffffff",
-              "secondary-container": "#645efb",
-              "on-secondary-container": "#fffbff",
-              tertiary: "#000000",
-              "on-tertiary": "#ffffff",
-              "tertiary-container": "#191c1d",
-              "on-tertiary-container": "#828485",
-              error: "#ba1a1a",
-              "on-error": "#ffffff",
-              "error-container": "#ffdad6",
-              "on-error-container": "#93000a",
-              background: "#f9f9ff",
-              "on-background": "#151c27",
-              "surface-variant": "#dce2f3"
-            },
-            borderRadius: {
-              DEFAULT: "0.25rem",
-              sm: "0.125rem",
-              md: "0.375rem",
-              lg: "0.5rem",
-              xl: "0.75rem",
-              full: "9999px"
-            },
-            spacing: {
-              "container-max": "1200px",
-              "section-gap-lg": "160px",
-              "section-gap-sm": "80px",
-              gutter: "32px",
-              "stack-xs": "4px",
-              "stack-sm": "8px",
-              "stack-md": "16px",
-              "stack-lg": "24px"
-            },
-            fontFamily: {
-              sans: ["Inter", "sans-serif"],
-              display: ["Manrope", "sans-serif"],
-              mono: ["JetBrains Mono", "monospace"]
-            }
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>吴贝然 - 简历</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-bright": "#f9f9ff",
+            "on-secondary-container": "#fffbff",
+            "inverse-primary": "#c8c6c5",
+            "surface": "#f9f9ff",
+            "on-error-container": "#93000a",
+            "surface-container-high": "#e2e8f8",
+            "on-primary-fixed-variant": "#474646",
+            "inverse-on-surface": "#ebf1ff",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#151c27",
+            "tertiary-container": "#191c1d",
+            "surface-container-highest": "#dce2f3",
+            "primary-container": "#1c1b1b",
+            "on-surface-variant": "#444748",
+            "on-error": "#ffffff",
+            "on-tertiary-container": "#828485",
+            "primary": "#000000",
+            "primary-fixed-dim": "#c8c6c5",
+            "inverse-surface": "#2a313d",
+            "error": "#ba1a1a",
+            "surface-variant": "#dce2f3",
+            "surface-container-low": "#f0f3ff",
+            "outline-variant": "#c4c7c7",
+            "error-container": "#ffdad6",
+            "on-background": "#151c27",
+            "primary-fixed": "#e5e2e1",
+            "secondary-container": "#645efb",
+            "on-secondary-fixed-variant": "#3323cc",
+            "on-primary-container": "#858383",
+            "tertiary-fixed": "#e1e3e4",
+            "surface-dim": "#d3daea",
+            "background": "#f9f9ff",
+            "on-primary": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed-dim": "#c5c7c8",
+            "on-secondary-fixed": "#0f0069",
+            "on-tertiary-fixed": "#191c1d",
+            "on-secondary": "#ffffff",
+            "surface-tint": "#5f5e5e",
+            "outline": "#747878",
+            "on-tertiary-fixed-variant": "#454748",
+            "on-primary-fixed": "#1c1b1b",
+            "secondary-fixed": "#e2dfff",
+            "secondary-fixed-dim": "#c3c0ff",
+            "secondary": "#4b41e1",
+            "surface-container": "#e7eefe",
+            "tertiary": "#000000"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          spacing: {
+            "section-gap-lg": "160px",
+            "gutter": "32px",
+            "stack-sm": "8px",
+            "container-max": "1200px",
+            "stack-md": "16px",
+            "stack-lg": "24px",
+            "stack-xs": "4px",
+            "section-gap-sm": "80px"
+          },
+          fontFamily: {
+            "label-caps": ["JetBrains Mono", "monospace"],
+            "headline-sm": ["Manrope", "sans-serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "headline-md": ["Manrope", "sans-serif"],
+            "display-lg": ["Manrope", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "metric-value": ["Manrope", "sans-serif"],
+            "display-lg-mobile": ["Manrope", "sans-serif"]
+          },
+          fontSize: {
+            "label-caps": ["12px", { lineHeight: "1.0", letterSpacing: "0.1em", fontWeight: "600" }],
+            "headline-sm": ["24px", { lineHeight: "1.4", fontWeight: "600" }],
+            "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+            "headline-md": ["32px", { lineHeight: "1.3", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "display-lg": ["64px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+            "metric-value": ["48px", { lineHeight: "1.0", letterSpacing: "-0.03em", fontWeight: "700" }],
+            "display-lg-mobile": ["40px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "800" }]
           }
         }
       }
-    </script>
-    <style>
-        body {
-            background-color: theme('colors.background');
-            color: theme('colors.on-background');
-            font-family: theme('fontFamily.sans');
-        }
-    </style>
+    };
+  </script>
+  <style>
+    body {
+      background-color: theme('colors.background');
+      color: theme('colors.on-background');
+    }
+  </style>
 </head>
 <body class="antialiased selection:bg-secondary selection:text-on-secondary">
+  <!-- Navigation -->
+  <nav class="bg-surface/80 dark:bg-surface-container-lowest/80 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/30 shadow-sm flex justify-between items-center h-20 px-gutter max-w-container-max mx-auto">
+    <a class="font-display-lg text-headline-md tracking-tighter text-primary dark:text-on-surface hover:opacity-80 transition-opacity" href="#">
+      吴贝然
+    </a>
+    <div class="hidden md:flex gap-8 items-center">
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-headline-sm text-body-lg" href="#">首页</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-headline-sm text-body-lg" href="#">作品</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-headline-sm text-body-lg" href="#">关于</a>
+      <a class="text-secondary dark:text-secondary-fixed border-b-2 border-secondary dark:border-secondary-fixed pb-1 font-headline-sm text-body-lg" href="#">简历</a>
+    </div>
+    <div class="hidden md:block">
+      <button class="bg-primary text-on-primary font-headline-sm text-body-md px-6 py-2 rounded hover:opacity-80 transition-opacity">联系我</button>
+    </div>
+    <button class="md:hidden text-primary">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </nav>
 
-    <!-- 顶部导航栏 -->
-    <nav class="bg-surface/80 dark:bg-surface-container-lowest/80 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/30 shadow-sm flex justify-between items-center h-20 px-6 md:px-gutter max-w-container-max mx-auto">
-        <a class="font-display font-extrabold text-2xl tracking-tighter text-primary dark:text-on-surface hover:opacity-80 transition-opacity" href="index.html">
-            吴贝然
-        </a>
-        <div class="hidden md:flex gap-8 items-center">
-            <a class="text-on-surface-variant hover:text-primary transition-colors font-display font-semibold" href="index.html">首页</a>
-            <a class="text-on-surface-variant hover:text-primary transition-colors font-display font-semibold" href="index.html#projects">作品</a>
-            <a class="text-on-surface-variant hover:text-primary transition-colors font-display font-semibold" href="about.html">关于</a>
-            <a class="text-secondary border-b-2 border-secondary pb-1 font-display font-semibold" href="resume.html">简历</a>
+  <!-- Main Container -->
+  <main class="max-w-container-max mx-auto px-gutter py-12">
+    <!-- Header Section -->
+    <header class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-outline-variant/30 pb-8 mb-12">
+      <div>
+        <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-2">吴贝然</h1>
+        <p class="font-body-lg text-secondary mb-4 font-medium">体验架构 (UX/UI)</p>
+        <div class="flex flex-wrap gap-6 text-on-surface-variant font-body-md">
+          <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[20px]">smartphone</span> +86 15317723505</span>
+          <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[20px]">mail</span> beiran0808@163.com</span>
+          <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[20px]">language</span> wubeiran.framer.website</span>
         </div>
-        <div class="hidden md:block">
-            <a href="mailto:beiran0808@163.com" class="bg-primary text-on-primary font-display font-semibold text-sm px-6 py-2 rounded hover:opacity-80 transition-opacity inline-block">联系我</a>
-        </div>
-        <button class="md:hidden text-primary">
-            <span class="material-symbols-outlined">menu</span>
-        </button>
-    </nav>
+      </div>
+      <button class="mt-6 md:mt-0 bg-primary text-on-primary font-headline-sm text-body-md px-6 py-3 rounded flex items-center gap-2 hover:opacity-80 transition-opacity shadow-[0_4px_14px_0_rgba(75,65,225,0.04)] hover:shadow-[0_6px_20px_rgba(75,65,225,0.08)]">
+        <span class="material-symbols-outlined text-[20px]">download</span> 下载 PDF
+      </button>
+    </header>
 
-    <!-- 主体区域 -->
-    <main class="max-w-container-max mx-auto px-6 md:px-gutter py-12 md:py-section-gap-sm">
-        
-        <!-- Header 简历头部 -->
-        <header class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-outline-variant/30 pb-8 mb-12">
-            <div>
-                <h1 class="font-display font-extrabold text-4xl md:text-6xl text-primary mb-2">吴贝然</h1>
-                <p class="font-sans text-lg text-secondary font-medium mb-4">体验架构 (UX/UI)</p>
-                <div class="flex flex-wrap gap-4 text-on-surface-variant text-sm md:text-base font-sans">
-                    <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[20px]">smartphone</span> +86 15317723505</span>
-                    <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[20px]">mail</span> beiran0808@163.com</span>
-                    <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[20px]">language</span> wubeiran.framer.website</span>
-                </div>
+    <!-- Content Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+      <!-- Left Column (Experience & Projects) -->
+      <div class="md:col-span-8 flex flex-col gap-12">
+        <!-- Work Experience -->
+        <section>
+          <div class="flex items-center gap-3 mb-6 text-primary">
+            <span class="material-symbols-outlined text-[24px]">work</span>
+            <h2 class="font-headline-md text-headline-sm">工作经历</h2>
+          </div>
+          <div class="relative pl-6 border-l border-outline-variant/30">
+            <div class="absolute w-3 h-3 bg-secondary rounded-full -left-[6.5px] top-2"></div>
+            <div class="flex justify-between items-start mb-2">
+              <div>
+                <h3 class="font-headline-sm text-body-lg text-primary font-bold">上海海顺新材</h3>
+                <p class="font-body-md text-on-surface-variant mt-0.5">市场与产品运营实习生</p>
+              </div>
+              <span class="font-label-caps text-label-caps bg-surface-container-high px-3 py-1 rounded text-on-surface">06/2025 - 07/2025</span>
             </div>
-            <button onclick="window.print()" class="mt-6 md:mt-0 bg-primary text-on-primary font-display font-semibold text-sm px-6 py-3 rounded flex items-center gap-2 hover:opacity-80 transition-opacity shadow-[0_4px_14px_0_rgba(75,65,225,0.04)] hover:shadow-[0_6px_20px_rgba(75,65,225,0.08)]">
-                <span class="material-symbols-outlined text-[20px]">download</span> 下载 PDF
-            </button>
-        </header>
-
-        <!-- 布局网格 (左8右4) -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-            
-            <!-- 左侧核心栏 (工作经历 + 项目经历) -->
-            <div class="md:col-span-8 flex flex-col gap-12">
-                
-                <!-- 工作经历 -->
-                <section>
-                    <div class="flex items-center gap-3 mb-6 text-primary">
-                        <span class="material-symbols-outlined text-[24px]">work</span>
-                        <h2 class="font-display font-bold text-2xl">工作经历</h2>
-                    </div>
-                    
-                    <div class="relative pl-6 border-l border-outline-variant/30">
-                        <div class="absolute w-3 h-3 bg-secondary rounded-full -left-[6.5px] top-2"></div>
-                        <div class="flex justify-between items-start mb-2">
-                            <div>
-                                <h3 class="font-display font-semibold text-lg text-primary">上海海顺新材</h3>
-                                <p class="font-sans text-on-surface-variant text-sm mt-0.5">市场与产品运营实习生</p>
-                            </div>
-                            <span class="font-mono text-xs font-semibold bg-surface-container-high px-3 py-1 rounded text-on-surface">06/2025 - 07/2025</span>
-                        </div>
-                        
-                        <ul class="font-sans text-on-surface-variant text-sm leading-relaxed list-disc pl-5 mt-4 space-y-3">
-                            <li><strong class="text-primary font-bold">需求拆解与竞品分析:</strong> 基于“超迹 AI”获客工具搭建海外客户运营流程，对标同类 AI 营销产品完成竞品拆解，整理竞品功能、定价、落地场景文档，输出完整竞品分析报告；结合市场调研结果与行业数据、用户画像分析，优化客户筛选逻辑，每轮精准定位 100+高潜力客户，线索获取效率提升 20%</li>
-                            <li><strong class="text-primary font-bold">需求收集与产品迭代:</strong> 持续沉淀海外客户使用 AI 工具的反馈，梳理功能痛点与优化建议，对接运营团队输出需求清单，参与产品优化方案讨论，推动 AI 获客链路迭代</li>
-                            <li><strong class="text-primary font-bold">数据埋点与产品复盘:</strong> 搭建客户行为数据追踪体系，使用 Excel 完成邮件打开率、客户转化、分层运营等指标统计分析，输出可视化产品复盘报表，优化从获客到转化全流程产品体验</li>
-                            <li><strong class="text-primary font-bold">跨部门协同落地:</strong> 与业务、运营端对齐需求，输出标准化业务使用文档，保障 AI 工具项目落地与日常运营推进</li>
-                        </ul>
-
-                        <div class="flex flex-wrap gap-2 mt-6">
-                            <span class="font-mono text-xs font-semibold bg-surface-container-highest px-3 py-1 rounded text-on-surface">市场调研</span>
-                            <span class="font-mono text-xs font-semibold bg-surface-container-highest px-3 py-1 rounded text-on-surface">数据分析</span>
-                            <span class="font-mono text-xs font-semibold bg-surface-container-highest px-3 py-1 rounded text-on-surface">AI工具</span>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 项目经历 -->
-                <section>
-                    <div class="flex items-center gap-3 mb-6 text-primary">
-                        <span class="material-symbols-outlined text-[24px]">rocket_launch</span>
-                        <h2 class="font-display font-bold text-2xl">项目经历</h2>
-                    </div>
-
-                    <!-- 项目 1 -->
-                    <div class="bg-surface-container-lowest border border-outline-variant/30 p-6 rounded-xl shadow-[0_4px_14px_0_rgba(75,65,225,0.04)] mb-6 hover:shadow-[0_6px_20px_rgba(75,65,225,0.08)] transition-shadow">
-                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2 gap-2">
-                            <h3 class="font-display font-bold text-lg text-primary">密歇根州立大学博物馆导视系统优化</h3>
-                            <span class="font-mono text-xs font-semibold bg-surface-container-high px-3 py-1 rounded text-on-surface whitespace-nowrap">01/2026 - 04/2026</span>
-                        </div>
-                        <p class="font-sans text-secondary text-sm font-medium mb-3">产品研究与原型设计 | 美国</p>
-                        <p class="font-sans text-on-surface-variant text-sm mb-4">针对博物馆室内导航痛点，主导从用户研究到高保真原型设计的完整体验优化流程。通过实地观察和用户访谈，发现现有导视系统导致较高访客迷失率。</p>
-                        
-                        <ul class="font-sans text-on-surface-variant text-sm leading-relaxed list-disc pl-5 space-y-2 mb-6">
-                            <li><strong class="text-primary font-bold">用户需求调研与痛点挖掘:</strong> 采用实地观察+用户访谈完成全流程需求调研，从导视引导、标识清晰度和地图可用性 3 大维度梳理产品痛点，输出用户体验研究报告，提炼 4 项高优先级需求</li>
-                            <li><strong class="text-primary font-bold">产品方案与原型设计:</strong> 基于调研结论输出完整产品优化方案，使用 Figma 绘制导视地图低保真/高保真原型，规范图例、楼层分区、无障碍交互符号，输出标准化需求说明文档（PRD）</li>
-                            <li><strong class="text-primary font-bold">产品落地跟进:</strong> 同步设计、运营团队推进落地，跟踪新版本使用体验，收集游客反馈，持续迭代导视交互逻辑</li>
-                        </ul>
-
-                        <div class="flex flex-wrap gap-2">
-                            <span class="font-mono text-xs font-semibold bg-surface-container-highest px-3 py-1 rounded text-on-surface">用户体验研究</span>
-                            <span class="font-mono text-xs font-semibold bg-surface-container-highest px-3 py-1 rounded text-on-surface">原型设计</span>
-                        </div>
-                    </div>
-
-                    <!-- 项目 2 -->
-                    <div class="bg-surface-container-lowest border border-outline-variant/30 p-6 rounded-xl shadow-[0_4px_14px_0_rgba(75,65,225,0.04)] hover:shadow-[0_6px_20px_rgba(75,65,225,0.08)] transition-shadow">
-                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2 gap-2">
-                            <h3 class="font-display font-bold text-lg text-primary">密歇根州立大学艺术馆官网改版</h3>
-                            <span class="font-mono text-xs font-semibold bg-surface-container-high px-3 py-1 rounded text-on-surface whitespace-nowrap">01/2025 - 04/2025</span>
-                        </div>
-                        <p class="font-sans text-secondary text-sm font-medium mb-3">AI 交互产品研究员 & 交互设计师 | 美国</p>
-                        <p class="font-sans text-on-surface-variant text-sm mb-4">致力于提升在线艺术展览的沉浸感与可达性。负责重构网站信息架构，并探索 AI 对话助手在在线艺术导览中的应用潜力。</p>
-                        
-                        <ul class="font-sans text-on-surface-variant text-sm leading-relaxed list-disc pl-5 space-y-2 mb-6">
-                            <li><strong class="text-primary font-bold">产品需求与竞品分析:</strong> 深度访谈 5 名核心用户 + 同类智能导览 AI 产品对标（如 Artland、Museumfy、Bloomberg Connects），识别官网移动端导航混乱、智能推荐层级薄弱等核心痛点，输出 2 篇竞品&应用场景体验分析报告</li>
-                            <li><strong class="text-primary font-bold">体验架构重构与原型输出:</strong> 基于用户洞察重新规划产品体验架构，用 Figma、AI、PS 等工具完成从低保真线框图到高保真交互原型全流程输出，优化智能检索、AI 展品推荐模块，改版后产品可用性评分提升 30%</li>
-                            <li><strong class="text-primary font-bold">效果数据验证与跨团队交付:</strong> 在测试平台部署 A/B 测试，采集热力图、点击路径、用户问卷等数据量化验证新版交互效果；向相关方展开设计评审汇报，输出完整原型与交互说明文档，保障功能顺利落地</li>
-                        </ul>
-
-                        <div class="flex flex-wrap gap-2">
-                            <span class="font-mono text-xs font-semibold bg-surface-container-highest px-3 py-1 rounded text-on-surface">网页设计</span>
-                            <span class="font-mono text-xs font-semibold bg-surface-container-highest px-3 py-1 rounded text-on-surface">AI集成</span>
-                        </div>
-                    </div>
-                </section>
-
+            <ul class="font-body-md text-on-surface-variant list-disc pl-5 mt-4 space-y-3">
+              <li><strong class="text-primary">需求拆解与竞品分析:</strong> 基于“超迹 AI”获客工具搭建海外客户运营流程，对标同类 AI 营销产品完成竞品拆解，整理竞品功能、定价、落地场景文档，输出完整竞品分析报告；结合市场调研结果与行业数据、用户画像分析，优化客户筛选逻辑，每轮精准定位 100+高潜力客户，线索获取效率提升 20%</li>
+              <li><strong class="text-primary">需求收集与产品迭代:</strong> 持续沉淀海外客户使用 AI 工具的反馈，梳理功能痛点与优化建议，对接运营团队输出需求清单，参与产品优化方案讨论，推动 AI 获客链路迭代</li>
+              <li><strong class="text-primary">数据埋点与产品复盘:</strong> 搭建客户行为数据追踪体系，使用 Excel 完成邮件打开率、客户转化、分层运营等指标统计分析，输出可视化产品复盘报表，优化从获客到转化全流程产品体验</li>
+              <li><strong class="text-primary">跨部门协同落地:</strong> 与业务、运营端对齐需求，输出标准化业务使用文档，保障 AI 工具项目落地与日常运营推进</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-6">
+              <span class="font-label-caps text-label-caps bg-surface-container-highest px-3 py-1 rounded text-on-surface">市场调研</span>
+              <span class="font-label-caps text-label-caps bg-surface-container-highest px-3 py-1 rounded text-on-surface">数据分析</span>
+              <span class="font-label-caps text-label-caps bg-surface-container-highest px-3 py-1 rounded text-on-surface">AI工具</span>
             </div>
+          </div>
+        </section>
 
-            <!-- 右侧边栏 (教育、技能、学习) -->
-            <div class="md:col-span-4 flex flex-col gap-8">
-                
-                <!-- 教育经历 -->
-                <section class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/20 shadow-sm">
-                    <div class="flex items-center gap-3 mb-6 text-primary border-b border-outline-variant/20 pb-4">
-                        <span class="material-symbols-outlined text-[20px]">school</span>
-                        <h2 class="font-display font-bold text-xl">教育经历</h2>
-                    </div>
-                    <div>
-                        <h3 class="font-display font-bold text-base text-primary mb-1">密歇根州立大学 <span class="text-xs font-normal text-on-surface-variant">(THE: 105)</span></h3>
-                        <p class="font-sans text-secondary text-sm mb-2">体验架构学士, 美国</p>
-                        <p class="font-mono text-xs font-semibold text-on-surface-variant mb-4">2022.08 - 2026.05</p>
-                        <p class="font-sans text-primary font-medium mb-3 text-sm">GPA 3.4 <span class="text-on-surface-variant font-normal">/4.0</span></p>
-                        <ul class="font-sans text-on-surface-variant list-disc pl-4 text-xs space-y-1">
-                            <li>教育主题设计冠军</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- 专业技能 -->
-                <section class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 shadow-[0_4px_14px_0_rgba(75,65,225,0.04)]">
-                    <div class="flex items-center gap-3 mb-6 text-primary">
-                        <span class="material-symbols-outlined text-[20px]">build</span>
-                        <h2 class="font-display font-bold text-xl">专业技能</h2>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <h3 class="font-mono text-xs font-semibold text-on-surface-variant mb-3 tracking-widest uppercase">产品与策略</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="font-sans text-xs bg-surface-container-low text-primary px-3 py-1.5 rounded font-medium">产品策略</span>
-                            <span class="font-sans text-xs bg-surface-container-low text-primary px-3 py-1.5 rounded font-medium">A/B测试</span>
-                            <span class="font-sans text-xs bg-surface-container-low text-primary px-3 py-1.5 rounded font-medium">用户研究</span>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3 class="font-mono text-xs font-semibold text-on-surface-variant mb-3 tracking-widest uppercase">工具与技术</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="font-sans text-xs bg-surface-container-low text-primary px-3 py-1.5 rounded font-medium">Figma</span>
-                            <span class="font-sans text-xs bg-surface-container-low text-primary px-3 py-1.5 rounded font-medium">NLP基础</span>
-                            <span class="font-sans text-xs bg-surface-container-low text-primary px-3 py-1.5 rounded font-medium">Python</span>
-                            <span class="font-sans text-xs bg-surface-container-low text-primary px-3 py-1.5 rounded font-medium">SQL</span>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 持续学习 -->
-                <section class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 shadow-[0_4px_14px_0_rgba(75,65,225,0.04)]">
-                    <div class="flex items-center gap-3 mb-6 text-primary">
-                        <span class="material-symbols-outlined text-[20px]">menu_book</span>
-                        <h2 class="font-display font-bold text-xl">持续学习</h2>
-                    </div>
-                    <ul class="font-sans text-primary text-sm space-y-3 font-medium">
-                        <li class="flex items-center gap-2">
-                            <div class="w-1.5 h-1.5 bg-secondary rounded-full"></div>
-                            AWS与云计算
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <div class="w-1.5 h-1.5 bg-secondary rounded-full"></div>
-                            高级数据分析
-                        </li>
-                    </ul>
-                </section>
-
+        <!-- Projects -->
+        <section>
+          <div class="flex items-center gap-3 mb-6 text-primary">
+            <span class="material-symbols-outlined text-[24px]">rocket_launch</span>
+            <h2 class="font-headline-md text-headline-sm">项目经历</h2>
+          </div>
+          
+          <!-- Project 1 -->
+          <div class="bg-surface-container-lowest border border-outline-variant/30 p-6 rounded-xl shadow-[0_4px_14px_0_rgba(75,65,225,0.04)] mb-6 hover:shadow-[0_6px_20px_rgba(75,65,225,0.08)] transition-shadow">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2 gap-4">
+              <h3 class="font-headline-sm text-body-lg text-primary font-bold">密歇根州立大学博物馆导视系统优化</h3>
+              <span class="font-label-caps text-label-caps bg-surface-container-high px-3 py-1 rounded text-on-surface whitespace-nowrap">01/2026 - 04/2026</span>
             </div>
-        </div>
-    </main>
+            <p class="font-body-md text-secondary mb-3">产品研究与原型设计 | 美国</p>
+            <p class="font-body-md text-on-surface-variant mb-4">针对博物馆室内导航痛点，主导从用户研究到高保真原型设计的完整体验优化流程。通过实地观察和用户访谈，发现现有导视系统导致较高访客迷失率。</p>
+            <ul class="font-body-md text-on-surface-variant list-disc pl-5 space-y-2 mb-6">
+              <li><strong class="text-primary">用户需求调研与痛点挖掘:</strong> 采用实地观察+用户访谈完成全流程需求调研，从导视引导、标识清晰度和地图可用性 3 大维度梳理产品痛点，输出用户体验研究报告，提炼 4 项高优先级需求</li>
+              <li><strong class="text-primary">产品方案与原型设计:</strong> 基于调研结论输出完整产品优化方案，使用 Figma 绘制导视地图低保真/高保真原型，规范图例、楼层分区、无障碍交互符号，输出标准化需求说明文档（PRD）</li>
+              <li><strong class="text-primary">产品落地跟进:</strong> 同步设计、运营团队推进落地，跟踪新版本使用体验，收集游客反馈，持续迭代导视交互逻辑</li>
+            </ul>
+            <div class="flex flex-wrap gap-2">
+              <span class="font-label-caps text-label-caps bg-surface-container-highest px-3 py-1 rounded text-on-surface">用户体验研究</span>
+              <span class="font-label-caps text-label-caps bg-surface-container-highest px-3 py-1 rounded text-on-surface">原型设计</span>
+            </div>
+          </div>
 
+          <!-- Project 2 -->
+          <div class="bg-surface-container-lowest border border-outline-variant/30 p-6 rounded-xl shadow-[0_4px_14px_0_rgba(75,65,225,0.04)] hover:shadow-[0_6px_20px_rgba(75,65,225,0.08)] transition-shadow">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2 gap-4">
+              <h3 class="font-headline-sm text-body-lg text-primary font-bold">密歇根州立大学艺术馆官网改版</h3>
+              <span class="font-label-caps text-label-caps bg-surface-container-high px-3 py-1 rounded text-on-surface whitespace-nowrap">01/2025 - 04/2025</span>
+            </div>
+            <p class="font-body-md text-secondary mb-3">AI 交互产品研究员 &amp; 交互设计师 | 美国</p>
+            <p class="font-body-md text-on-surface-variant mb-4">致力于提升在线艺术展览的沉浸感与可达性。负责重构网站信息架构，并探索 AI 对话助手在在线艺术导览中的应用潜力。</p>
+            <ul class="font-body-md text-on-surface-variant list-disc pl-5 space-y-2 mb-6">
+              <li><strong class="text-primary">产品需求与竞品分析:</strong> 深度访谈 5 名核心用户+同类智能导览 AI 产品对标（如 Artlasd、Museumfy、Bloomberg Connects），识别官网移动端导航混乱、智能推荐层级薄弱等核心痛点，输出 2 篇竞品 &amp; 应用场景体验分析报告</li>
+              <li><strong class="text-primary">体验架构重构与原型输出:</strong> 基于用户洞察重新规划产品体验架构，用 Figma、AI、PS 等工具完成从低保真线框图到高保真交互原型全流程输出，优化智能检索、AI 展品推荐模块，改版后产品可用性评分提升 30%</li>
+              <li><strong class="text-primary">效果数据验证:</strong> 在测试平台部署 A/B 测试，采集热力图、点击路径、用户问卷等数据，量化验证新版交互效果，输出数据复盘报告，支持产品功能优化</li>
+              <li><strong class="text-primary">跨团队评审交付:</strong> 向相关方开展设计评审汇报，输出完整原型文件、交互说明文档，保障智能交互功能落地</li>
+            </ul>
+            <div class="flex flex-wrap gap-2">
+              <span class="font-label-caps text-label-caps bg-surface-container-highest px-3 py-1 rounded text-on-surface">网页设计</span>
+              <span class="font-label-caps text-label-caps bg-surface-container-highest px-3 py-1 rounded text-on-surface">AI集成</span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Right Column (Education, Skills, Learning) -->
+      <div class="md:col-span-4 flex flex-col gap-8">
+        <!-- Education -->
+        <section class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/20 shadow-sm">
+          <div class="flex items-center gap-3 mb-6 text-primary border-b border-outline-variant/20 pb-4">
+            <span class="material-symbols-outlined text-[20px]">school</span>
+            <h2 class="font-headline-md text-headline-sm">教育经历</h2>
+          </div>
+          <div>
+            <h3 class="font-headline-sm text-body-lg text-primary font-bold mb-1">密歇根州立大学 (THE: 105)</h3>
+            <p class="font-body-md text-secondary mb-2">体验架构学士, 美国</p>
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-4">2022.08 - 2026.05</p>
+            <p class="font-body-md text-primary font-medium mb-3">GPA 3.4 <span class="text-on-surface-variant font-normal">/ 4.0</span></p>
+            <ul class="font-body-md text-on-surface-variant list-disc pl-4 space-y-1 text-sm">
+              <li>教育主题设计冠军</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Professional Skills -->
+        <section class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 shadow-[0_4px_14px_0_rgba(75,65,225,0.04)]">
+          <div class="flex items-center gap-3 mb-6 text-primary">
+            <span class="material-symbols-outlined text-[20px]">build</span>
+            <h2 class="font-headline-md text-headline-sm">专业技能</h2>
+          </div>
+          <div class="mb-6">
+            <h3 class="font-label-caps text-label-caps text-on-surface-variant mb-3 tracking-widest">产品与策略</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="font-body-md text-sm bg-surface-container-low text-primary px-3 py-1 rounded">产品策略</span>
+              <span class="font-body-md text-sm bg-surface-container-low text-primary px-3 py-1 rounded">敏捷开发</span>
+              <span class="font-body-md text-sm bg-surface-container-low text-primary px-3 py-1 rounded">A/B测试</span>
+              <span class="font-body-md text-sm bg-surface-container-low text-primary px-3 py-1 rounded">用户研究</span>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-label-caps text-label-caps text-on-surface-variant mb-3 tracking-widest">工具与技术</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="font-body-md text-sm bg-surface-container-low text-primary px-3 py-1 rounded">Figma</span>
+              <span class="font-body-md text-sm bg-surface-container-low text-primary px-3 py-1 rounded">NLP基础</span>
+              <span class="font-body-md text-sm bg-surface-container-low text-primary px-3 py-1 rounded">Python</span>
+              <span class="font-body-md text-sm bg-surface-container-low text-primary px-3 py-1 rounded">SQL</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Continuous Learning -->
+        <section class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 shadow-[0_4px_14px_0_rgba(75,65,225,0.04)]">
+          <div class="flex items-center gap-3 mb-6 text-primary">
+            <span class="material-symbols-outlined text-[20px]">menu_book</span>
+            <h2 class="font-headline-md text-headline-sm">持续学习</h2>
+          </div>
+          <ul class="font-body-md text-primary space-y-3">
+            <li class="flex items-center gap-2">
+              <div class="w-1.5 h-1.5 bg-secondary rounded-full"></div>
+              AWS 与云计算
+            </li>
+            <li class="flex items-center gap-2">
+              <div class="w-1.5 h-1.5 bg-secondary rounded-full"></div>
+              高级数据分析
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
