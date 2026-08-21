@@ -1,84 +1,298 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html class="light" lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>关于我 - 吴贝然</title>
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            display: ['Manrope', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace'],
-          },
-          colors: {
-            primary: '#000000',
-            surface: '#f9f9ff',
-            'surface-container-low': '#f0f3ff',
-            'surface-container-lowest': '#ffffff',
-            'on-surface': '#151c27',
-            'on-surface-variant': '#444748',
-            secondary: '#4b41e1',
-            'outline-variant': '#c4c7c7',
-          }
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>关于我 - Beiran Wu</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+</style>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "secondary-container": "#645efb",
+          "inverse-on-surface": "#ebf1ff",
+          "surface": "#f9f9ff",
+          "outline": "#747878",
+          "on-secondary-fixed": "#0f0069",
+          "on-tertiary-fixed": "#191c1d",
+          "on-error": "#ffffff",
+          "secondary-fixed-dim": "#c3c0ff",
+          "on-primary-container": "#858383",
+          "surface-container-high": "#e2e8f8",
+          "on-surface-variant": "#444748",
+          "primary": "#000000",
+          "tertiary-container": "#191c1d",
+          "on-tertiary": "#ffffff",
+          "tertiary": "#000000",
+          "primary-container": "#1c1b1b",
+          "surface-variant": "#dce2f3",
+          "error-container": "#ffdad6",
+          "on-primary-fixed": "#1c1b1b",
+          "inverse-surface": "#2a313d",
+          "on-tertiary-container": "#828485",
+          "tertiary-fixed": "#e1e3e4",
+          "secondary": "#4b41e1",
+          "on-secondary-container": "#fffbff",
+          "surface-dim": "#d3daea",
+          "on-secondary": "#ffffff",
+          "surface-tint": "#5f5e5e",
+          "surface-container-highest": "#dce2f3",
+          "on-tertiary-fixed-variant": "#454748",
+          "surface-container-lowest": "#ffffff",
+          "surface-container": "#e7eefe",
+          "inverse-primary": "#c8c6c5",
+          "on-secondary-fixed-variant": "#3323cc",
+          "on-primary": "#ffffff",
+          "on-primary-fixed-variant": "#474646",
+          "outline-variant": "#c4c7c7",
+          "tertiary-fixed-dim": "#c5c7c8",
+          "secondary-fixed": "#e2dfff",
+          "on-error-container": "#93000a",
+          "primary-fixed-dim": "#c8c6c5",
+          "on-background": "#151c27",
+          "primary-fixed": "#e5e2e1",
+          "on-surface": "#151c27",
+          "error": "#ba1a1a",
+          "surface-container-low": "#f0f3ff",
+          "surface-bright": "#f9f9ff",
+          "background": "#f9f9ff"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "stack-sm": "8px",
+          "stack-lg": "24px",
+          "section-gap-lg": "160px",
+          "stack-xs": "4px",
+          "stack-md": "16px",
+          "section-gap-sm": "80px",
+          "gutter": "32px",
+          "container-max": "1200px"
+        },
+        "fontFamily": {
+          "label-caps": ["JetBrains Mono"],
+          "metric-value": ["Manrope"],
+          "headline-sm": ["Manrope"],
+          "display-lg-mobile": ["Manrope"],
+          "body-md": ["Inter"],
+          "body-lg": ["Inter"],
+          "headline-md": ["Manrope"],
+          "display-lg": ["Manrope"]
+        },
+        "fontSize": {
+          "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }],
+          "metric-value": ["48px", { "lineHeight": "1.0", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+          "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+          "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+          "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+          "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+          "headline-md": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+          "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }]
         }
       }
     }
-  </script>
+  }
+</script>
 </head>
-<body class="antialiased flex flex-col min-h-screen bg-surface text-on-surface">
-  <header class="bg-surface/85 backdrop-blur-md border-b border-outline-variant/40 sticky top-0 z-50 w-full">
-    <div class="max-w-[1200px] mx-auto px-6 h-20 flex justify-between items-center">
-      <a href="index.html" class="font-display font-extrabold text-2xl tracking-tight text-primary">吴贝然</a>
-      <nav class="hidden md:flex space-x-8 font-medium">
-        <a href="index.html" class="text-on-surface-variant hover:text-secondary transition-colors">首页</a>
-        <a href="index.html" class="text-on-surface-variant hover:text-secondary transition-colors">作品</a>
-        <a href="about.html" class="text-secondary border-b-2 border-secondary pb-1">关于</a>
-        <a href="resume.html" class="text-on-surface-variant hover:text-secondary transition-colors">简历</a>
+<body class="bg-background text-on-surface font-body-md antialiased selection:bg-secondary-container selection:text-inverse-on-surface">
+
+  <!-- Navigation Bar -->
+  <header class="bg-surface/80 dark:bg-surface-container-lowest/80 backdrop-blur-md font-headline-sm text-headline-sm top-0 z-50 sticky border-b border-outline-variant/30 shadow-sm transition-opacity hover:opacity-80">
+    <div class="flex justify-between items-center h-20 px-gutter max-w-container-max mx-auto">
+      <a class="font-display-lg text-headline-md tracking-tighter text-primary dark:text-on-surface" href="#">Beiran Wu</a>
+      <nav class="hidden md:flex gap-stack-lg items-center h-full">
+        <a class="text-on-surface-variant hover:text-primary transition-colors h-full flex items-center" href="#">首页</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors h-full flex items-center" href="#">作品</a>
+        <a class="text-secondary dark:text-secondary-fixed border-b-2 border-secondary dark:border-secondary-fixed pb-1 h-full flex items-center mt-1" href="#">关于我</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors h-full flex items-center" href="#">简历</a>
       </nav>
-      <a href="mailto:contact@example.com" class="hidden md:inline-flex items-center justify-center px-5 py-2.5 bg-primary text-white text-sm font-medium rounded hover:bg-opacity-90">联系我</a>
+      <button class="hidden md:flex items-center justify-center bg-tertiary text-on-tertiary rounded px-6 py-3 font-label-caps text-label-caps hover:bg-surface-tint transition-colors shadow-[0_4px_14px_0_rgba(75,65,225,0.04)] hover:shadow-[0_6px_20px_rgba(75,65,225,0.1)]">
+        Contact Me
+      </button>
+      <button class="md:hidden flex items-center text-on-surface p-2">
+        <span class="material-symbols-outlined text-[24px]">menu</span>
+      </button>
     </div>
   </header>
 
-  <main class="flex-grow w-full max-w-[900px] mx-auto px-6 py-16">
-    <span class="font-mono text-xs text-secondary font-semibold uppercase tracking-wider block mb-2">ABOUT ME</span>
-    <h1 class="font-display text-4xl md:text-5xl font-extrabold text-primary mb-8">你好，我是吴贝然。</h1>
-    
-    <div class="space-y-6 text-lg text-on-surface-variant leading-relaxed">
-      <p>我是一名热衷于在**分析严谨性**与**直觉创意**之间寻找平衡的产品设计师与 UX 研究员。我关注如何利用数据分析、用户研究和可扩展的设计系统，将复杂的业务和技术问题转化为优雅、直观的数字产品体验。</p>
-      <p>我毕业于密西根州立大学 (MSU)，在人机交互、无障碍设计（WCAG）以及教育科技（EdTech）领域有深入的项目实践沉淀。</p>
-    </div>
+  <!-- Main Content Canvas -->
+  <main class="w-full">
+    <!-- Hero Section -->
+    <section class="md:py-section-gap-lg px-gutter max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center pt-stack-lg">
+      <div class="lg:col-span-7 flex flex-col gap-stack-lg order-2 lg:order-1">
+        <h1 class="text-7xl font-bold text-primary mb-4 tracking-tighter">吴贝然</h1>
+        <div class="inline-flex items-center gap-2 font-label-caps text-label-caps text-on-surface-variant bg-surface-container-low px-4 py-2 rounded-full w-fit">
+          <span class="w-2 h-2 rounded-full bg-secondary"></span>
+          UI/UX 设计师 &amp; 产品经理
+        </div>
+        <h2 class="font-display-lg-mobile md:font-display-lg text-primary tracking-tight">
+          专注与洞察 <br><span class="text-secondary">(Precision &amp; Insight)</span>
+        </h2>
+        <p class="font-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+          我是一名热爱将复杂问题转化为优雅数字体验的 UI/UX 设计师和产品经理。我致力于通过结构化的思维和创新的设计理念，打造出既具备分析严谨性，又充满创意直觉的现代数字产品。
+        </p>
+        <div class="flex flex-wrap gap-stack-md pt-stack-sm">
+          <button class="bg-primary text-on-primary rounded px-8 py-4 font-label-caps text-label-caps hover:bg-surface-tint transition-colors shadow-[0_4px_14px_0_rgba(75,65,225,0.04)] hover:shadow-[0_6px_20px_rgba(75,65,225,0.1)]">
+            查看作品
+          </button>
+        </div>
+      </div>
+      <div class="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end relative">
+        <div class="absolute inset-0 bg-surface-container-high rounded-full blur-3xl opacity-50 -z-10 translate-x-10 translate-y-10"></div>
+        <div class="rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm w-full max-w-[400px] aspect-[4/5] relative">
+          <img alt="Profile photo of Beiran Wu" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2x4c3SQnKrZRiq88VnenJajlupiyU-LStF_l-XfXNHs26GJ2e0LbT4-UCJhwamZSVwzDg5IBceSAnqenZTxwVqPI3YkYK6tU2VGhglI-pkbINPC-vhdVp7LxQT7OXdNvDiFsxAS_G28JfpgNwOofqLy1Ipx5Vd_5nnS6TlNSTrxTaWPKACjdOx7GLykhar4Qrji4SJQM5VWbYTSfWvoOLlorZAEu8yg3pezhBg4qOSqECmPnRrzUVKQFCrzd9kt-Zow">
+        </div>
+      </div>
+    </section>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
-      <div class="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/40">
-        <div class="font-mono text-xs text-secondary mb-2 font-bold uppercase">研究策略</div>
-        <h3 class="font-display text-lg font-bold text-primary mb-1">用户可用性审计</h3>
-        <p class="text-sm text-on-surface-variant">擅长定性访谈、可用性测试与数据埋点归因。</p>
+    <!-- Design Philosophy Bento Grid -->
+    <section class="py-section-gap-sm px-gutter max-w-container-max mx-auto">
+      <div class="flex flex-col gap-stack-sm mb-stack-lg">
+        <h2 class="font-headline-md text-headline-md text-primary">设计哲学</h2>
+        <p class="font-body-lg text-on-surface-variant max-w-3xl">平衡分析严谨性与创意直觉，坚持以人为本的设计原则。</p>
       </div>
-      <div class="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/40">
-        <div class="font-mono text-xs text-secondary mb-2 font-bold uppercase">交互架构</div>
-        <h3 class="font-display text-lg font-bold text-primary mb-1">设计系统构建</h3>
-        <p class="text-sm text-on-surface-variant">建立精细化 Token 与可扩展的设计规范体系。</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Bento Item 1 -->
+        <div class="bg-surface-container-lowest border border-outline-variant/50 rounded-xl p-8 flex flex-col gap-stack-md shadow-[0_4px_14px_0_rgba(75,65,225,0.02)] hover:shadow-[0_6px_20px_rgba(75,65,225,0.08)] transition-all group lg:col-span-2">
+          <div class="w-12 h-12 rounded bg-surface-container-low flex items-center justify-center text-secondary mb-2 group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-[24px]">architecture</span>
+          </div>
+          <h3 class="font-headline-sm text-headline-sm text-primary">结构化思考</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed">
+            在面对复杂的系统和业务逻辑时，我倾向于从底层架构出发，理清数据流和用户旅程。通过建立清晰的信息层级，将混乱转化为秩序，为用户提供直观且可预测的交互路径。
+          </p>
+        </div>
+        <!-- Bento Item 2 -->
+        <div class="bg-surface-container-lowest border border-outline-variant/50 rounded-xl p-8 flex flex-col gap-stack-md shadow-[0_4px_14px_0_rgba(75,65,225,0.02)] hover:shadow-[0_6px_20px_rgba(75,65,225,0.08)] transition-all group">
+          <div class="w-12 h-12 rounded bg-surface-container-low flex items-center justify-center text-secondary mb-2 group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-[24px]">visibility</span>
+          </div>
+          <h3 class="font-headline-sm text-headline-sm text-primary">视觉精确</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed">
+            现代极简不仅是风格，更是功能。通过大量留白和精确的排版，突出核心数据和用户目标，减少认知负荷。
+          </p>
+        </div>
+        <!-- Bento Item 3 -->
+        <div class="bg-surface-container-lowest border border-outline-variant/50 rounded-xl p-8 flex flex-col gap-stack-md shadow-[0_4px_14px_0_rgba(75,65,225,0.02)] hover:shadow-[0_6px_20px_rgba(75,65,225,0.08)] transition-all group">
+          <div class="w-12 h-12 rounded bg-surface-container-low flex items-center justify-center text-secondary mb-2 group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-[24px]">favorite</span>
+          </div>
+          <h3 class="font-headline-sm text-headline-sm text-primary">同理心驱动</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed">
+            设计的核心是人。我始终保持对用户真实需求的敏感度，通过深入调研和持续测试，确保每一个设计决策都建立在真实的用户痛点之上。
+          </p>
+        </div>
+        <!-- Bento Item 4 -->
+        <div class="bg-surface-container-lowest border border-outline-variant/50 rounded-xl p-8 flex flex-col gap-stack-md shadow-[0_4px_14px_0_rgba(75,65,225,0.02)] hover:shadow-[0_6px_20px_rgba(75,65,225,0.08)] transition-all group lg:col-span-2 relative overflow-hidden">
+          <div class="absolute right-0 bottom-0 opacity-5 w-64 h-64 pointer-events-none">
+            <span class="material-symbols-outlined text-[256px]">insights</span>
+          </div>
+          <div class="w-12 h-12 rounded bg-surface-container-low flex items-center justify-center text-secondary mb-2 group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-[24px]">trending_up</span>
+          </div>
+          <h3 class="font-headline-sm text-headline-sm text-primary">业务洞察</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed z-10 relative">
+            优秀的设计不仅仅是看起来漂亮，更要能推动业务指标的增长。作为具备产品思维的设计师，我能够将商业目标无缝融入用户体验中，实现用户价值与商业价值的双赢。
+          </p>
+        </div>
       </div>
-      <div class="p-6 bg-surface-container-lowest rounded-xl border border-outline-variant/40">
-        <div class="font-mono text-xs text-secondary mb-2 font-bold uppercase">包容性设计</div>
-        <h3 class="font-display text-lg font-bold text-primary mb-1">无障碍标准 (a11y)</h3>
-        <p class="text-sm text-on-surface-variant">全面遵循 WCAG 2.1 标准，确保所有人平权享用产品。</p>
+    </section>
+
+    <!-- Background & Experience -->
+    <section class="py-section-gap-sm px-gutter max-w-container-max mx-auto border-t border-outline-variant/20">
+      <h2 class="font-headline-md text-headline-md text-primary mb-stack-lg">背景经历</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+        <div class="lg:col-span-4 flex flex-col gap-stack-md">
+          <p class="font-body-lg text-on-surface-variant">
+            我拥有跨学科的背景，融合了视觉设计的敏锐度和前端开发的逻辑性。这使我不仅能构思出富有创意的界面，还能确保它们在技术实现上的高保真度。
+          </p>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="font-label-caps text-label-caps bg-surface-container-low text-on-surface px-3 py-1 rounded">UI/UX 设计</span>
+            <span class="font-label-caps text-label-caps bg-surface-container-low text-on-surface px-3 py-1 rounded">产品策略</span>
+            <span class="font-label-caps text-label-caps bg-surface-container-low text-on-surface px-3 py-1 rounded">交互设计</span>
+            <span class="font-label-caps text-label-caps bg-surface-container-low text-on-surface px-3 py-1 rounded">前端开发</span>
+            <span class="font-label-caps text-label-caps bg-surface-container-low text-on-surface px-3 py-1 rounded">数据分析</span>
+          </div>
+        </div>
+        <div class="lg:col-span-8 flex flex-col w-full">
+          <div class="flex flex-col gap-stack-lg">
+            <h3 class="font-headline-sm text-headline-sm text-primary mb-2">设计流程</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="flex flex-col gap-2">
+                <span class="font-label-caps text-secondary text-[24px]">01</span>
+                <h4 class="font-headline-sm text-[18px] text-primary">发现问题 Discover</h4>
+                <p class="text-body-md text-on-surface-variant">了解目标用户、业务背景和现有体验，通过访谈、观察、竞品分析等方式收集信息。</p>
+              </div>
+              <div class="flex flex-col gap-2">
+                <span class="font-label-caps text-secondary text-[24px]">02</span>
+                <h4 class="font-headline-sm text-[18px] text-primary">定义方向 Define</h4>
+                <p class="text-body-md text-on-surface-variant">梳理核心痛点、用户流程和优先级，将模糊需求转化为清晰的产品问题。</p>
+              </div>
+              <div class="flex flex-col gap-2">
+                <span class="font-label-caps text-secondary text-[24px]">03</span>
+                <h4 class="font-headline-sm text-[18px] text-primary">设计方案 Design</h4>
+                <p class="text-body-md text-on-surface-variant">完成信息架构、用户流程、线框图和高保真原型，并持续评估方案可行性。</p>
+              </div>
+              <div class="flex flex-col gap-2">
+                <span class="font-label-caps text-secondary text-[24px]">04</span>
+                <h4 class="font-headline-sm text-[18px] text-primary">测试迭代 Validate</h4>
+                <p class="text-body-md text-on-surface-variant">通过可用性测试、反馈数据和团队评审验证设计，持续优化交互逻辑和产品体验。</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <!-- Call to Action & Outside Work -->
+    <section class="py-section-gap-sm px-gutter max-w-container-max mx-auto border-t border-outline-variant/20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+        <div class="lg:col-span-4">
+          <h2 class="font-headline-md text-headline-md text-primary mb-stack-lg">工作之外</h2>
+        </div>
+        <div class="lg:col-span-8 flex flex-col gap-stack-md">
+          <p class="font-body-lg text-on-surface-variant leading-relaxed">
+            设计之外，我也关注人工智能、数字城市和新兴技术如何改变人与信息、空间和服务之间的关系。我喜欢观察生活中容易被忽略的体验问题，并思考如何通过更清晰的结构和交互方式进行改善。
+          </p>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="font-label-caps text-label-caps bg-surface-container-low text-on-surface px-3 py-1 rounded">AI 产品</span>
+            <span class="font-label-caps text-label-caps bg-surface-container-low text-on-surface px-3 py-1 rounded">交互设计</span>
+            <span class="font-label-caps text-label-caps bg-surface-container-low text-on-surface px-3 py-1 rounded">前端实现</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action CTA -->
+    <section class="py-section-gap-lg px-gutter max-w-container-max mx-auto flex flex-col items-center justify-center text-center gap-stack-lg">
+      <h2 class="font-display-lg-mobile md:font-display-lg text-primary max-w-4xl tracking-tight">
+        准备好一起创造<br>影响力了吗？
+      </h2>
+      <p class="font-body-lg text-on-surface-variant max-w-2xl mb-4">
+        无论是讨论一个新项目，还是交流设计心得，我总是乐于倾听并寻找合作的机会。
+      </p>
+      <button class="bg-primary text-on-primary rounded px-8 py-4 font-label-caps text-label-caps hover:bg-surface-tint transition-colors shadow-[0_4px_14px_0_rgba(75,65,225,0.04)] hover:shadow-[0_6px_20px_rgba(75,65,225,0.1)] inline-flex items-center gap-2">
+        联系我 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+      </button>
+    </section>
   </main>
-
-  <footer class="border-t border-outline-variant/30 py-8 bg-surface-container-low/50 mt-auto">
-    <div class="max-w-[1200px] mx-auto px-6 text-center text-sm text-on-surface-variant font-mono">
-      © 2026 Beiran Wu. Designed & Built with Precision & Insight.
-    </div>
-  </footer>
 </body>
 </html>
