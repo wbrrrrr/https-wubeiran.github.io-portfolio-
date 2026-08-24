@@ -1,3 +1,5 @@
+---
+name: Precision & Insight
 colors:
   surface: '#f9f9ff'
   surface-dim: '#d3daea'
@@ -160,7 +162,7 @@ The shape language is **Soft (Level 1)**, utilizing a 0.25rem (4px) base radius.
 - **Large Containers:** Project feature images and primary containers use 8px (`rounded-lg`) to feel substantial yet restrained.
 - **Icons:** Should be stroke-based (2px weight) with slight rounding to match the UI components.
 
-## Components
+## Components & Interactive Behaviors
 
 - **Project Cards:** Large-format cards with a 1px border and 24px internal padding. Images should have a subtle scale-up effect on hover. Metrics (e.g., "15% Conversion Increase") are displayed in `metric-value` style using the Electric Indigo accent.
 - **Buttons:**
@@ -170,3 +172,70 @@ The shape language is **Soft (Level 1)**, utilizing a 0.25rem (4px) base radius.
 - **Case Study Lists:** Minimalist vertical lists where each item is separated by a 1px hairline divider. Titles use `headline-sm`.
 - **Input Fields:** Clean, underlined or fully outlined with 1px gray, turning Indigo on focus. No heavy fills.
 - **Process Stepper:** A custom component for demonstrating "The Product Lifecycle," using thin lines and Indigo circular nodes to show project progression.
+
+---
+
+## Interactive Code Implementation
+
+将交互事件挂载到网页元素，实现首页、作品、关于我、简历与 Contact Me 按钮的动态响应：
+
+```html
+<!-- Navigation Header with Interactive Buttons -->
+<header class="bg-surface/80 backdrop-blur-md top-0 z-50 sticky border-b border-outline shadow-sm">
+  <div class="flex justify-between items-center h-20 px-gutter max-w-container-max mx-auto relative">
+    <a class="font-headline-sm text-headline-sm tracking-tighter text-primary cursor-pointer" onclick="navigateTo('home')">Beiran Wu</a>
+    
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden md:flex gap-stack-lg items-center h-full font-label-caps text-label-caps">
+      <button id="nav-home" class="nav-btn text-on-surface-variant hover:text-primary transition-colors h-full flex items-center" onclick="navigateTo('home')">首页</button>
+      <button id="nav-works" class="nav-btn text-on-surface-variant hover:text-primary transition-colors h-full flex items-center" onclick="navigateTo('works')">作品</button>
+      <button id="nav-about" class="nav-btn text-secondary border-b-2 border-secondary pb-1 h-full flex items-center" onclick="navigateTo('about')">关于我</button>
+      <button id="nav-resume" class="nav-btn text-on-surface-variant hover:text-primary transition-colors h-full flex items-center" onclick="navigateTo('resume')">简历</button>
+    </nav>
+    
+    <button class="hidden md:flex items-center justify-center bg-tertiary text-on-tertiary rounded px-6 py-3 font-label-caps text-label-caps hover:bg-surface-tint transition-colors" onclick="openContactModal()">
+      Contact Me
+    </button>
+  </div>
+</header>
+
+<!-- Dynamic Views Container -->
+<main class="w-full">
+  <div id="view-home" class="page-view hidden"><!-- 首页内容 --></div>
+  <div id="view-works" class="page-view hidden"><!-- 作品内容 --></div>
+  <div id="view-about" class="page-view"><!-- 关于我内容 --></div>
+  <div id="view-resume" class="page-view hidden"><!-- 简历内容 --></div>
+</main>
+
+<!-- Contact Modal -->
+<div id="contact-modal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center">
+  <div class="bg-surface rounded-lg p-8 max-w-md w-full relative">
+    <button class="absolute top-4 right-4 text-on-surface-variant" onclick="closeContactModal()">✕</button>
+    <h3 class="font-headline-sm text-primary mb-4">联系我</h3>
+    <a href="mailto:beiran.wu@example.com" class="block w-full bg-primary text-on-primary text-center rounded py-3 font-label-caps">发送邮件</a>
+  </div>
+</div>
+
+<script>
+  function navigateTo(viewName) {
+    document.querySelectorAll('.page-view').forEach(el => el.classList.add('hidden'));
+    const target = document.getElementById(`view-${viewName}`);
+    if (target) target.classList.remove('hidden');
+
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+      btn.className = "nav-btn text-on-surface-variant hover:text-primary transition-colors h-full flex items-center";
+    });
+    const activeNav = document.getElementById(`nav-${viewName}`);
+    if (activeNav) {
+      activeNav.className = "nav-btn text-secondary border-b-2 border-secondary pb-1 h-full flex items-center";
+    }
+  }
+
+  function openContactModal() {
+    document.getElementById('contact-modal').classList.remove('hidden');
+  }
+
+  function closeContactModal() {
+    document.getElementById('contact-modal').classList.add('hidden');
+  }
+</script>
